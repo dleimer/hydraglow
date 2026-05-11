@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HydraGlow — IV Therapy & Wellness Concierge</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Concierge-grade IV therapy and wellness rituals, delivered to your home, hotel, or our after-hours studio. Miami · Brickell · The Beach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505;
+    --bg-2:#0c0a0d;
+    --bg-3:#13101a;
+    --ink:#f6f3ef;
+    --ink-2:#cbc6c0;
+    --muted:#7e7882;
+    --line:rgba(255,255,255,.09);
+    --line-2:rgba(255,255,255,.16);
+    --pink:#ff2d92;
+    --orange:#ff6a1a;
+    --glow-grad:linear-gradient(90deg,#ff2d92 0%,#ff4d6e 45%,#ff6a1a 100%);
+    --serif:"Cormorant Garamond", "Times New Roman", serif;
+    --sans:"Manrope", "Helvetica Neue", Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--pink);color:#fff}
+
+  .container{max-width:1320px;margin:0 auto;padding:0 56px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .label{font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;color:var(--ink-2)}
+  .grad-text{background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+  .italic{font-style:italic}
+  .rule{height:1px;background:var(--line);width:100%}
+  .vrule{width:1px;background:var(--line)}
+
+  .sparkle{display:inline-block;width:1em;height:1em;background:var(--glow-grad);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z'/></svg>") center/contain no-repeat;vertical-align:-.1em}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-family:var(--sans);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+  .btn-glow{background:var(--glow-grad);color:#fff;box-shadow:0 0 0 0 rgba(255,45,146,.5),0 6px 30px -8px rgba(255,90,40,.55)}
+  .btn-glow:hover{transform:translateY(-1px);box-shadow:0 0 0 4px rgba(255,45,146,.18),0 14px 40px -10px rgba(255,90,40,.7);filter:brightness(1.05)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .btn-ghost:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.32)}
+  .arrow{display:inline-block;width:14px;height:1px;background:currentColor;position:relative}
+  .arrow::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.7);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);border-bottom:1px solid var(--line)}
+  nav.top .row{display:flex;align-items:center;justify-content:space-between;height:78px}
+  nav.top .logo{display:flex;align-items:center;gap:14px}
+  nav.top .logo img{height:38px;width:auto}
+  nav.top ul{display:flex;gap:36px;list-style:none}
+  nav.top ul a{font-size:13px;letter-spacing:.08em;font-weight:500;color:var(--ink-2);transition:color .2s}
+  nav.top ul a:hover{color:var(--ink)}
+  nav.top .right{display:flex;align-items:center;gap:18px}
+  nav.top .phone{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+  .hero{position:relative;padding:80px 0 120px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:auto;width:780px;height:780px;border-radius:50%;left:-280px;top:-140px;background:radial-gradient(circle at center,rgba(255,45,146,.28),transparent 60%);filter:blur(20px);pointer-events:none}
+  .hero::after{content:"";position:absolute;width:680px;height:680px;border-radius:50%;right:-220px;bottom:-180px;background:radial-gradient(circle at center,rgba(255,106,26,.24),transparent 60%);filter:blur(20px);pointer-events:none}
+  .hero .container{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:end}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:172px;line-height:.92;letter-spacing:-.025em;color:var(--ink)}
+  .hero h1 em{font-style:italic;font-weight:500;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;padding-right:.05em}
+  .hero h1 .dot{color:var(--pink)}
+  .hero .lede{margin-top:36px;font-size:18px;line-height:1.55;color:var(--ink-2);max-width:440px;font-weight:300}
+  .hero .cta-row{margin-top:42px;display:flex;gap:14px;align-items:center}
+  .hero .meta{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:560px}
+  .hero .meta div .num{font-family:var(--serif);font-size:36px;font-weight:500;letter-spacing:-.02em}
+  .hero .meta div .lbl{margin-top:6px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:var(--mono)}
+
+  .hero-image{position:relative;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:repeating-linear-gradient(45deg,rgba(255,45,146,.06) 0 14px,rgba(255,106,26,.06) 14px 28px),linear-gradient(160deg,#1a0c14,#0a0608);border:1px solid var(--line-2)}
+  .hero-image::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,45,146,.22),transparent 55%),radial-gradient(circle at 70% 80%,rgba(255,106,26,.18),transparent 60%);mix-blend-mode:screen}
+  .hero-image .tag{position:absolute;top:18px;left:18px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase;background:rgba(0,0,0,.5);padding:6px 10px;border:1px solid var(--line-2);border-radius:99px;z-index:2}
+  .hero-image .badge{position:absolute;bottom:20px;left:20px;right:20px;display:flex;align-items:end;justify-content:space-between;z-index:2}
+  .hero-image .badge .b-l{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--ink)}
+  .hero-image .badge .b-r{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.14em;text-transform:uppercase;text-align:right}
+
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;overflow:hidden;background:#070608}
+  .marquee-row{display:flex;gap:64px;white-space:nowrap;animation:marq 38s linear infinite;font-family:var(--serif);font-style:italic;font-size:32px;font-weight:500;color:var(--ink)}
+  .marquee-row .dot{display:inline-block;width:10px;height:10px;background:var(--glow-grad);border-radius:50%;vertical-align:middle;margin:0 22px 6px}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .pillars{padding:140px 0 120px;position:relative}
+  .pillars-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:80px;gap:60px}
+  .pillars-head h2{font-family:var(--serif);font-size:76px;font-weight:400;line-height:1;letter-spacing:-.02em;max-width:680px}
+  .pillars-head h2 em{font-style:italic;color:var(--pink)}
+  .pillars-head .right{max-width:300px;font-size:14px;color:var(--ink-2);line-height:1.6}
+  .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+  .pillar{padding:48px 36px 56px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;transition:background .35s}
+  .pillar:nth-child(3n){border-right:none}
+  .pillar:hover{background:linear-gradient(180deg,rgba(255,45,146,.04),rgba(255,106,26,.02))}
+  .pillar .n{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:60px;display:flex;justify-content:space-between;align-items:center}
+  .pillar .n .sparkle{width:14px;height:14px;opacity:.7}
+  .pillar h3{font-family:var(--serif);font-size:54px;font-weight:400;letter-spacing:-.02em;line-height:1;margin-bottom:18px}
+  .pillar h3 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .pillar p{font-size:14.5px;line-height:1.65;color:var(--ink-2);max-width:340px}
+  .pillar .more{margin-top:38px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);display:inline-flex;align-items:center;gap:10px;transition:gap .2s}
+  .pillar .more:hover{gap:16px}
+
+  .feature{padding:140px 0;background:linear-gradient(180deg,#070608,#0a0709)}
+  .feature .frame{border:1px solid var(--line);border-radius:8px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;background:#0a0709}
+  .feature .copy{padding:80px 64px}
+  .feature .eyebrow{margin-bottom:32px;display:inline-flex;align-items:center;gap:10px}
+  .feature .eyebrow .sparkle{width:11px;height:11px}
+  .feature h3{font-family:var(--serif);font-size:64px;font-weight:400;line-height:1.02;letter-spacing:-.02em;margin-bottom:24px}
+  .feature h3 em{font-style:italic;color:var(--pink)}
+  .feature .body-copy{font-size:16px;line-height:1.7;color:var(--ink-2);max-width:460px;margin-bottom:36px}
+  .feature ul{list-style:none;margin-bottom:42px}
+  .feature ul li{padding:14px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:14px}
+  .feature ul li:last-child{border-bottom:1px solid var(--line)}
+  .feature ul li .n{font-family:var(--mono);color:var(--muted);font-size:11px;letter-spacing:.14em;margin-right:24px}
+  .feature ul li .t{flex:1;color:var(--ink)}
+  .feature ul li .p{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+  .feature .image-slot{position:relative;background:repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 12px,rgba(255,255,255,.05) 12px 24px),linear-gradient(170deg,#1a0d16,#0a0608);min-height:680px;border-left:1px solid var(--line)}
+  .feature .image-slot::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 65% 35%,rgba(255,45,146,.28),transparent 50%),radial-gradient(circle at 30% 80%,rgba(255,106,26,.2),transparent 55%);mix-blend-mode:screen}
+  .feature .image-slot .pill{position:absolute;top:24px;right:24px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase;background:rgba(0,0,0,.55);padding:7px 12px;border:1px solid var(--line-2);border-radius:99px;z-index:2}
+  .feature .image-slot .quote{position:absolute;left:36px;right:36px;bottom:36px;font-family:var(--serif);font-style:italic;font-size:32px;line-height:1.15;color:var(--ink);z-index:2;letter-spacing:-.01em}
+  .feature .image-slot .quote .by{display:block;margin-top:14px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase}
+
+  .promise{padding:140px 0;text-align:center;position:relative;overflow:hidden}
+  .promise::before{content:"";position:absolute;left:50%;top:50%;width:900px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(255,45,146,.12),transparent 60%);pointer-events:none}
+  .promise .container{position:relative;z-index:1}
+  .promise .eyebrow{margin-bottom:32px}
+  .promise h2{font-family:var(--serif);font-size:96px;font-weight:400;line-height:1;letter-spacing:-.025em;max-width:1100px;margin:0 auto}
+  .promise h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .promise p{margin:36px auto 0;max-width:580px;font-size:16px;line-height:1.65;color:var(--ink-2)}
+  .promise .scope{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);text-align:left}
+  .promise .scope div{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .promise .scope div:nth-child(4n){border-right:none}
+  .promise .scope .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .promise .scope .v{font-family:var(--serif);font-size:32px;line-height:1.1;color:var(--ink);font-weight:400;letter-spacing:-.015em}
+  .promise .scope .v em{font-style:italic;color:var(--pink)}
+
+  .membership{padding:140px 0;background:#070608}
+  .membership-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+  .membership h2{font-family:var(--serif);font-size:88px;font-weight:400;line-height:.95;letter-spacing:-.025em}
+  .membership h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .membership .lede{margin-top:32px;font-size:16px;line-height:1.65;color:var(--ink-2);max-width:380px}
+  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .tier{padding:36px 30px;border:1px solid var(--line);border-radius:8px;background:#0c0a0d;position:relative;transition:transform .3s ease,border-color .3s ease}
+  .tier:hover{transform:translateY(-3px);border-color:var(--line-2)}
+  .tier.featured{background:linear-gradient(180deg,rgba(255,45,146,.08),rgba(255,106,26,.04) 60%,transparent);border-color:rgba(255,45,146,.35)}
+  .tier .tier-name{font-family:var(--serif);font-style:italic;font-size:32px;letter-spacing:-.01em;margin-bottom:6px}
+  .tier .tier-tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+  .tier .tier-price{margin-top:36px;font-family:var(--serif);font-size:60px;line-height:1;letter-spacing:-.02em;font-weight:500}
+  .tier .tier-price .grad-text{background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tier .tier-price .sub{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.16em;margin-left:6px}
+  .tier ul{list-style:none;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+  .tier ul li{padding:11px 0;font-size:13.5px;color:var(--ink-2);display:flex;gap:12px;align-items:start}
+  .tier ul li::before{content:"";flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:var(--glow-grad);margin-top:8px}
+  .tier .tier-cta{margin-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+  .tier .tier-cta .arrow{margin-top:1px}
+
+  .testimonial{padding:120px 0 140px}
+  .testimonial-row{display:grid;grid-template-columns:160px 1fr 220px;gap:60px;align-items:center}
+  .testimonial .stars{display:flex;gap:6px}
+  .testimonial .stars .sparkle{width:18px;height:18px}
+  .testimonial blockquote{font-family:var(--serif);font-size:52px;line-height:1.12;font-weight:400;letter-spacing:-.018em;color:var(--ink)}
+  .testimonial blockquote em{font-style:italic;color:var(--pink)}
+  .testimonial .by{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:right}
+  .testimonial .by .name{display:block;color:var(--ink);font-family:var(--serif);font-style:italic;font-size:22px;letter-spacing:0;text-transform:none;margin-bottom:6px}
+
+  footer{border-top:1px solid var(--line);padding:80px 0 36px;background:#040305}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px;margin-bottom:80px}
+  footer .brand img{height:48px;margin-bottom:24px}
+  footer .brand p{font-size:14px;line-height:1.6;color:var(--ink-2);max-width:300px}
+  footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+  footer ul{list-style:none}
+  footer ul li{padding:7px 0}
+  footer ul li a{font-size:14px;color:var(--ink-2);transition:color .2s}
+  footer ul li a:hover{color:var(--ink)}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:28px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+  .footer-bottom .legal{display:flex;gap:32px}
+  .footer-glow{height:1px;background:var(--glow-grad);opacity:.6;margin:0 56px}
+
+  /* ── BOOKING MODAL ── */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay.open{opacity:1;pointer-events:all}
+  .modal{background:#0c0a0d;border:1px solid var(--line-2);border-radius:16px;width:100%;max-width:520px;padding:48px;position:relative;transform:translateY(16px);transition:transform .3s}
+  .modal-overlay.open .modal{transform:translateY(0)}
+  .modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px;transition:color .2s}
+  .modal-close:hover{color:var(--ink)}
+  .modal-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .modal h2{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-.02em;line-height:1.05;margin-bottom:32px}
+  .modal h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .modal-sms{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:18px;border-radius:999px;background:var(--glow-grad);color:#fff;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;transition:filter .25s,transform .25s;text-decoration:none}
+  .modal-sms:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .modal-or{display:flex;align-items:center;gap:16px;margin-bottom:28px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .modal-or::before,.modal-or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .modal form{display:flex;flex-direction:column;gap:14px}
+  .modal form input,.modal form select,.modal form textarea{background:#13101a;border:1px solid var(--line-2);border-radius:8px;padding:14px 16px;font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;width:100%}
+  .modal form input::placeholder,.modal form textarea::placeholder{color:var(--muted)}
+  .modal form input:focus,.modal form select:focus,.modal form textarea:focus{border-color:rgba(255,45,146,.5)}
+  .modal form select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%237e7882' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;background-color:#13101a;color:var(--ink)}
+  .modal form select option{background:#13101a}
+  .modal form textarea{resize:vertical;min-height:90px}
+  .modal form .modal-submit{background:var(--glow-grad);color:#fff;border:none;border-radius:999px;padding:16px 32px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:filter .25s,transform .25s;width:100%;margin-top:4px}
+  .modal form .modal-submit:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .modal-success{display:none;text-align:center;padding:24px 0}
+  .modal-success .sparkle{width:32px;height:32px;margin:0 auto 16px}
+  .modal-success p{font-size:15px;color:var(--ink-2);line-height:1.6}
+
+  /* ── AI CHAT BUTTON ── */
+  .ai-chat-btn{position:fixed;bottom:32px;right:32px;z-index:100;width:56px;height:56px;border-radius:50%;background:var(--glow-grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(255,45,146,.4);transition:transform .25s,box-shadow .25s}
+  .ai-chat-btn:hover{transform:scale(1.08);box-shadow:0 8px 36px rgba(255,45,146,.55)}
+  .ai-chat-btn .sparkle{width:22px;height:22px}
+  .ai-panel{position:fixed;bottom:100px;right:32px;z-index:100;width:320px;background:#0c0a0d;border:1px solid var(--line-2);border-radius:16px;padding:32px;display:none}
+  .ai-panel.open{display:block}
+  .ai-panel .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .ai-panel h4{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.01em;margin-bottom:10px}
+  .ai-panel h4 em{font-style:italic;color:var(--pink)}
+  .ai-panel p{font-size:13px;line-height:1.6;color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="container row">
+    <a href="index.html" class="logo" aria-label="HydraGlow">
+      <img src="assets/hydraglow-logo.png" alt="HydraGlow">
+    </a>
+    <ul>
+      <li><a href="services.html">Treatments</a></li>
+      <li><a href="#">Membership</a></li>
+      <li><a href="#">Concierge</a></li>
+      <li><a href="#">Approach</a></li>
+      <li><a href="#">Journal</a></li>
+    </ul>
+    <div class="right">
+      <span class="phone">+1 (305) 555 · 0142</span>
+      <button class="btn btn-glow" onclick="openModal()">Book a Drip <span class="arrow"></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:34px;display:flex;align-items:center;gap:10px"><span class="sparkle" style="width:11px;height:11px"></span> IV Therapy &nbsp;·&nbsp; Wellness Concierge &nbsp;·&nbsp; Est. 2023</div>
+        <img src="assets/hydraglow-logo.png" alt="HydraGlow — IV Therapy & Wellness Concierge" style="width:100%;max-width:560px;mix-blend-mode:screen;margin-bottom:8px">
+        <p class="lede">Concierge-grade IV therapy and wellness rituals, delivered to your home, hotel, or our after-hours studio. Clinical bones. Editorial soul.</p>
+        <div class="cta-row">
+          <button class="btn btn-glow" onclick="openModal()">Book a Drip <span class="arrow"></span></button>
+          <a class="btn btn-ghost" href="services.html">See the Menu</a>
+        </div>
+        <div class="meta">
+          <div><div class="num"><span class="grad-text">98%</span></div><div class="lbl">Repeat Guests</div></div>
+          <div><div class="num"><span class="grad-text">45min</span></div><div class="lbl">Avg. Drip Time</div></div>
+          <div><div class="num"><span class="grad-text">24/7</span></div><div class="lbl">On-Call Nurse</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-image" role="img" aria-label="HydraGlow studio">
+          <div class="badge">
+            <span class="b-l">The Glow Drip™</span>
+            <span class="b-r">Signature<br>Vitamin · NAD+ · Glutathione</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-row">
+    <span>Recover</span><span class="dot"></span>
+    <span><em style="font-style:italic">Restore</em></span><span class="dot"></span>
+    <span>Replenish</span><span class="dot"></span>
+    <span><em style="font-style:italic">Reset</em></span><span class="dot"></span>
+    <span>Revive</span><span class="dot"></span>
+    <span><em style="font-style:italic">Radiate</em></span><span class="dot"></span>
+    <span>Recover</span><span class="dot"></span>
+    <span><em style="font-style:italic">Restore</em></span><span class="dot"></span>
+    <span>Replenish</span><span class="dot"></span>
+    <span><em style="font-style:italic">Reset</em></span><span class="dot"></span>
+    <span>Revive</span><span class="dot"></span>
+    <span><em style="font-style:italic">Radiate</em></span><span class="dot"></span>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="container">
+    <div class="pillars-head">
+      <h2>A protocol for <em>every</em><br>kind of human.</h2>
+      <p class="right">Three pillars, infinite combinations. Every drip is custom-built around your bloodwork, your week, and the kind of glow you want by sunrise.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="n"><span>01 / Hydrate</span> <span class="sparkle"></span></div>
+        <h3>Cellular <em>thirst</em>, satisfied.</h3>
+        <p>Electrolyte-rich Lactated Ringer's, B-complex and magnesium. The reset for jet lag, deadline weeks and the morning after the wedding.</p>
+        <a class="more" href="services.html">Hydration Drips <span class="arrow"></span></a>
+      </div>
+      <div class="pillar">
+        <div class="n"><span>02 / Illuminate</span> <span class="sparkle"></span></div>
+        <h3>Skin that <em>catches</em> light.</h3>
+        <p>Glutathione, vitamin C and biotin push pigment back into balance and tell collagen to wake up. Photographed-without-warning skin.</p>
+        <a class="more" href="services.html">Beauty Drips <span class="arrow"></span></a>
+      </div>
+      <div class="pillar">
+        <div class="n"><span>03 / Glow</span> <span class="sparkle"></span></div>
+        <h3>Energy you can <em>feel</em>.</h3>
+        <p>NAD+, amino blends and methylated B12 for the people who refuse to coast. Mitochondrial firepower without the crash.</p>
+        <a class="more" href="services.html">Performance Drips <span class="arrow"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature">
+  <div class="container">
+    <div class="frame">
+      <div class="copy">
+        <div class="eyebrow"><span class="sparkle"></span> The Concierge</div>
+        <h3>A wellness team<br>on <em>speed-dial</em>.</h3>
+        <p class="body-copy">Your concierge plans the labs, books the providers, stocks the supplements and shows up to your suite with a kit. Think private chef, but for your bloodwork.</p>
+        <ul>
+          <li><span class="n">01</span><span class="t">Quarterly bloodwork & deep biomarker review</span><span class="p">Included</span></li>
+          <li><span class="n">02</span><span class="t">On-demand house calls, 7 days a week</span><span class="p">From 90m</span></li>
+          <li><span class="n">03</span><span class="t">Custom supplement & peptide protocols</span><span class="p">Members</span></li>
+          <li><span class="n">04</span><span class="t">Travel kit · drips on the road</span><span class="p">+ Fee</span></li>
+          <li><span class="n">05</span><span class="t">Hormone, sleep & longevity programs</span><span class="p">Quarterly</span></li>
+        </ul>
+        <button class="btn btn-glow" onclick="openModal()">Meet the Concierge <span class="arrow"></span></button>
+      </div>
+      <div class="image-slot">
+        <span class="pill">▮ Editorial · house-call</span>
+        <p class="quote">"They show up before the headache does."<span class="by">— Member · Brickell · 2y</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <div class="container">
+    <div class="eyebrow"><span class="sparkle" style="width:11px;height:11px"></span> &nbsp; The HydraGlow Promise</div>
+    <h2>Hospital-grade care.<br>Hotel-suite <em>service</em>.</h2>
+    <p>Every drip is hung by a registered nurse with critical-care credentials. Every protocol is signed by a board-certified MD. Every appointment is on time. Every time.</p>
+    <div class="scope">
+      <div><div class="k">01 · Clinical</div><div class="v">RN-administered, MD-signed protocols.</div></div>
+      <div><div class="k">02 · Sourcing</div><div class="v">503B compounded, batch-tested.</div></div>
+      <div><div class="k">03 · Time</div><div class="v">On your <em>schedule</em>, not ours.</div></div>
+      <div><div class="k">04 · Privacy</div><div class="v">Discreet by default. NDA on request.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="membership">
+  <div class="container">
+    <div class="membership-grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:32px"><span class="sparkle" style="width:11px;height:11px"></span> &nbsp; Membership</div>
+        <h2>Glow on a <em>retainer</em>.</h2>
+        <p class="lede">Members get priority booking, member rates on every drip, complimentary house calls within zone, and quarterly labs included. No contracts, cancel anytime.</p>
+        <div style="margin-top:42px"><button class="btn btn-ghost" onclick="openModal()">Compare All Tiers <span class="arrow"></span></button></div>
+      </div>
+      <div class="tiers">
+        <div class="tier">
+          <div class="tier-name">Aura</div>
+          <div class="tier-tag">Monthly · Entry</div>
+          <div class="tier-price"><span class="grad-text">$240</span><span class="sub">/mo</span></div>
+          <ul>
+            <li>One signature drip per month</li>
+            <li>Member rate on all add-ons</li>
+            <li>Priority same-day booking</li>
+            <li>10% off retail supplements</li>
+          </ul>
+          <button class="tier-cta" onclick="openModal('Aura Membership')">Start with Aura <span class="arrow"></span></button>
+        </div>
+        <div class="tier featured">
+          <div class="tier-name">Halo</div>
+          <div class="tier-tag">Most Popular · Concierge</div>
+          <div class="tier-price"><span class="grad-text">$680</span><span class="sub">/mo</span></div>
+          <ul>
+            <li>Three drips, any tier</li>
+            <li>Complimentary in-zone house calls</li>
+            <li>Quarterly bloodwork included</li>
+            <li>Travel kit · two trips / year</li>
+            <li>24/7 nurse line</li>
+          </ul>
+          <button class="tier-cta" onclick="openModal('Halo Membership')">Apply for Halo <span class="arrow"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container">
+    <div class="testimonial-row">
+      <div class="stars">
+        <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+      </div>
+      <blockquote>"I land at MIA at 11pm and the nurse is in my suite by midnight. I sleep, I drip, I shoot at 6am. It is the <em>only</em> way I travel now."</blockquote>
+      <div class="by"><span class="name">— Marlowe K.</span>Halo Member · Travels 200d/yr</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-glow"></div>
+  <div class="container" style="padding-top:60px">
+    <div class="footer-grid">
+      <div class="brand">
+        <img src="assets/hydraglow-logo.png" alt="HydraGlow">
+        <p>IV therapy & wellness concierge.<br>Miami · Brickell · The Beach.<br>Concierge nationwide on request.</p>
+      </div>
+      <div>
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="services.html">Hydration Drips</a></li>
+          <li><a href="services.html">Beauty Drips</a></li>
+          <li><a href="services.html">Performance & NAD+</a></li>
+          <li><a href="services.html">Recovery & Immunity</a></li>
+          <li><a href="services.html">Add-ons & Boosters</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Concierge</h4>
+        <ul>
+          <li><a href="#">House Calls</a></li>
+          <li><a href="#">Membership</a></li>
+          <li><a href="#">Bloodwork & Labs</a></li>
+          <li><a href="#">Corporate & Events</a></li>
+          <li><a href="#">Travel Program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#">Visit · Brickell</a></li>
+          <li><a href="tel:+13055550142">+1 (305) 555 · 0142</a></li>
+          <li><a href="mailto:hello@hydraglow.com">hello@hydraglow.com</a></li>
+          <li><a href="#">@hydraglow</a></li>
+          <li><a href="#">Press & Editorial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 HydraGlow LLC · All rights reserved</span>
+      <div class="legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Notice of Privacy Practices</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div class="modal-eyebrow"><span class="sparkle" style="width:10px;height:10px"></span> HydraGlow Concierge</div>
+    <h2>Book a <em>Drip</em>.</h2>
+    <a class="modal-sms" id="modal-sms-btn" href="sms:+13055550142">
+      <span class="sparkle" style="width:16px;height:16px"></span>
+      Text to Book · (305) 555-0142
+    </a>
+    <div class="modal-or">or send a message</div>
+    <form id="modal-form" action="mailto:hello@hydraglow.com" method="POST" enctype="text/plain" onsubmit="handleFormSubmit(event)">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="tel" name="phone" placeholder="Phone number">
+      <input type="email" name="email" placeholder="Email address" required>
+      <select name="service" id="modal-service-select">
+        <option value="" disabled selected>Interested in…</option>
+        <option>The Glow Drip™ — $385</option>
+        <option>The Reset — $185</option>
+        <option>The Aftermath — $245</option>
+        <option>The Long Haul — $265</option>
+        <option>The Lit — $245</option>
+        <option>The Wedding Week — $1,250</option>
+        <option>The Ignite — $195</option>
+        <option>NAD+ 250mg — $425</option>
+        <option>NAD+ 500mg Reset — $695</option>
+        <option>The Baseline — $1,850</option>
+        <option>The Reset 90 — $5,200</option>
+        <option>The Longevity Year — $24,000</option>
+        <option>Aura Membership — $240/mo</option>
+        <option>Halo Membership — $680/mo</option>
+        <option>Not sure — help me choose</option>
+      </select>
+      <textarea name="message" placeholder="Anything else? (preferred date, location, questions…)"></textarea>
+      <button type="submit" class="modal-submit">Send Message <span class="arrow"></span></button>
+    </form>
+    <div class="modal-success" id="modal-success">
+      <span class="sparkle" style="width:32px;height:32px;display:block;margin:0 auto 16px"></span>
+      <p>We got it. Expect a text or email within a few hours.<br>Can't wait? Text us directly at <strong>(305) 555-0142</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHAT BUTTON (future hook) -->
+<button class="ai-chat-btn" id="ai-chat-btn" onclick="toggleAiPanel()" aria-label="Ask HydraGlow">
+  <span class="sparkle"></span>
+</button>
+<div class="ai-panel" id="ai-panel">
+  <div class="eyebrow">Ask HydraGlow</div>
+  <h4>Your personal <em>wellness</em> concierge.</h4>
+  <p>AI-powered guidance coming soon — service recommendations, protocol questions, and booking help, all in one place.</p>
+</div>
+
+<script>
+  function openModal(service) {
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (service) {
+      const sel = document.getElementById('modal-service-select');
+      for (let i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text.startsWith(service)) { sel.selectedIndex = i; break; }
+      }
+    }
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+  }
+  function toggleAiPanel() {
+    document.getElementById('ai-panel').classList.toggle('open');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>

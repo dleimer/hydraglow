@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HydraGlow — Treatments</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Twelve IV drips, endless add-ons. Every drip custom-mixed that morning. Hydration, beauty, performance, NAD+, and concierge programs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050505;--bg-2:#0c0a0d;--bg-3:#13101a;
+    --ink:#f6f3ef;--ink-2:#cbc6c0;--muted:#7e7882;
+    --line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);
+    --pink:#ff2d92;--orange:#ff6a1a;
+    --glow-grad:linear-gradient(90deg,#ff2d92 0%,#ff4d6e 45%,#ff6a1a 100%);
+    --serif:"Cormorant Garamond","Times New Roman",serif;
+    --sans:"Manrope","Helvetica Neue",Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--pink);color:#fff}
+  .container{max-width:1320px;margin:0 auto;padding:0 56px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .grad-text{background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .sparkle{display:inline-block;width:1em;height:1em;background:var(--glow-grad);-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z'/></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z'/></svg>") center/contain no-repeat;vertical-align:-.1em}
+  .arrow{display:inline-block;width:14px;height:1px;background:currentColor;position:relative}
+  .arrow::after{content:"";position:absolute;right:-1px;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,filter .25s;font-family:var(--sans)}
+  .btn-glow{background:var(--glow-grad);color:#fff;box-shadow:0 6px 30px -8px rgba(255,90,40,.55)}
+  .btn-glow:hover{transform:translateY(-1px);filter:brightness(1.05)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+  .btn-ghost:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.32)}
+
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+  nav.top .row{display:flex;align-items:center;justify-content:space-between;height:78px}
+  nav.top .logo img{height:38px}
+  nav.top ul{display:flex;gap:36px;list-style:none}
+  nav.top ul a{font-size:13px;letter-spacing:.08em;font-weight:500;color:var(--ink-2);transition:color .2s}
+  nav.top ul a.active{color:var(--ink)}
+  nav.top ul a:hover{color:var(--ink)}
+  nav.top .right{display:flex;align-items:center;gap:18px}
+  nav.top .phone{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+  .page-head{padding:80px 0 80px;position:relative;overflow:hidden}
+  .page-head::before{content:"";position:absolute;width:1000px;height:600px;left:50%;top:-160px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,45,146,.18),transparent 60%);pointer-events:none}
+  .page-head .container{position:relative;z-index:1}
+  .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:36px}
+  .crumb a{color:var(--muted)}
+  .crumb .sep{margin:0 12px}
+  .page-head h1{font-family:var(--serif);font-size:144px;font-weight:400;line-height:.94;letter-spacing:-.025em;max-width:1200px}
+  .page-head h1 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .page-head .lede{margin-top:36px;font-size:18px;line-height:1.6;color:var(--ink-2);max-width:560px;font-weight:300}
+
+  .filters{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;position:sticky;top:78px;background:rgba(5,5,5,.85);backdrop-filter:blur(18px);z-index:40}
+  .filters .row{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .filters .tabs{display:flex;gap:8px}
+  .filters .tab{padding:10px 18px;border:1px solid var(--line-2);border-radius:999px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);cursor:pointer;background:transparent;transition:all .2s}
+  .filters .tab:hover{color:var(--ink);border-color:rgba(255,255,255,.32)}
+  .filters .tab.active{background:var(--glow-grad);color:#fff;border-color:transparent}
+  .filters .meta{display:flex;align-items:center;gap:24px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .filters .meta .legend span{display:inline-flex;align-items:center;gap:6px;margin-right:18px}
+  .filters .meta .dot{width:7px;height:7px;border-radius:50%}
+
+  .index{padding:0}
+  .cat{padding:90px 0 50px}
+  .cat .cat-head{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:48px}
+  .cat .cat-head h2{font-family:var(--serif);font-size:88px;font-weight:400;line-height:.95;letter-spacing:-.022em}
+  .cat .cat-head h2 em{font-style:italic;color:var(--pink)}
+  .cat .cat-head .desc{max-width:380px;font-size:14.5px;line-height:1.65;color:var(--ink-2)}
+  .cat .cat-head .count{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block}
+
+  .row-list{border-top:1px solid var(--line)}
+  .row-item{display:grid;grid-template-columns:60px 1.6fr 1fr 120px 140px 90px;gap:32px;align-items:center;padding:32px 4px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding .3s}
+  .row-item:hover{background:linear-gradient(90deg,rgba(255,45,146,.05),rgba(255,106,26,.02));padding-left:14px}
+  .row-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--glow-grad);opacity:0;transition:opacity .25s}
+  .row-item:hover::before{opacity:1}
+  .row-item .n{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted)}
+  .row-item .name{font-family:var(--serif);font-size:38px;font-weight:400;letter-spacing:-.015em;line-height:1.05}
+  .row-item .name em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .row-item .desc{font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+  .row-item .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .row-item .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);padding:5px 9px;border:1px solid var(--line);border-radius:99px}
+  .row-item .dur{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.08em}
+  .row-item .price{font-family:var(--serif);font-size:34px;font-weight:500;letter-spacing:-.015em;text-align:right}
+  .row-item .price em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .row-item .book{justify-self:end;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;color:var(--ink);transition:all .25s}
+  .row-item .book:hover{background:var(--glow-grad);border-color:transparent}
+
+  .feature-card{margin:48px 0 8px;display:grid;grid-template-columns:1.1fr 1fr;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0709;position:relative}
+  .feature-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at right,rgba(255,45,146,.16),transparent 60%);pointer-events:none}
+  .feature-card .copy{padding:56px 50px;position:relative;z-index:1}
+  .feature-card .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px}
+  .feature-card h3{font-family:var(--serif);font-size:64px;font-weight:400;letter-spacing:-.02em;line-height:1;margin-bottom:18px}
+  .feature-card h3 em{font-style:italic;color:var(--pink)}
+  .feature-card p{font-size:15px;line-height:1.65;color:var(--ink-2);max-width:420px;margin-bottom:28px}
+  .feature-card .specs{display:flex;gap:32px;padding-top:24px;border-top:1px solid var(--line);margin-bottom:30px}
+  .feature-card .specs .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .feature-card .specs .v{font-family:var(--serif);font-size:24px;font-weight:500}
+  .feature-card .specs .v em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .feature-card .image{background:repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 12px,rgba(255,255,255,.05) 12px 24px),linear-gradient(170deg,#1a0d16,#0a0608);position:relative;border-left:1px solid var(--line)}
+  .feature-card .image::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 60% 40%,rgba(255,45,146,.3),transparent 50%),radial-gradient(circle at 30% 80%,rgba(255,106,26,.22),transparent 55%);mix-blend-mode:screen}
+  .feature-card .image .pill{position:absolute;top:24px;left:24px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase;background:rgba(0,0,0,.55);padding:7px 12px;border:1px solid var(--line-2);border-radius:99px;z-index:2}
+  .feature-card .image .label{position:absolute;bottom:32px;left:32px;font-family:var(--serif);font-style:italic;font-size:42px;color:var(--ink);z-index:2;letter-spacing:-.015em}
+
+  .addons{padding:120px 0;background:#070608;border-top:1px solid var(--line)}
+  .addons-head{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:56px}
+  .addons-head h2{font-family:var(--serif);font-size:72px;font-weight:400;line-height:1;letter-spacing:-.02em}
+  .addons-head h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .addons-head .desc{max-width:360px;font-size:14px;line-height:1.65;color:var(--ink-2)}
+  .addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+  .addon{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s}
+  .addon:nth-child(4n){border-right:none}
+  .addon:hover{background:linear-gradient(180deg,rgba(255,45,146,.05),transparent)}
+  .addon .top{display:flex;justify-content:space-between;align-items:start;margin-bottom:48px}
+  .addon .top .sparkle{width:16px;height:16px;opacity:.7}
+  .addon .top .price{font-family:var(--mono);font-size:12px;color:var(--ink)}
+  .addon h4{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:-.015em;line-height:1.05;margin-bottom:10px}
+  .addon h4 em{font-style:italic;color:var(--pink)}
+  .addon p{font-size:13px;line-height:1.55;color:var(--ink-2)}
+
+  .process{padding:130px 0}
+  .process h2{font-family:var(--serif);font-size:88px;font-weight:400;line-height:.95;letter-spacing:-.025em;max-width:900px;margin-bottom:80px}
+  .process h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+  .step{padding:36px 28px 56px;border-right:1px solid var(--line)}
+  .step:nth-child(4){border-right:none}
+  .step .n{font-family:var(--serif);font-style:italic;font-size:96px;line-height:.9;letter-spacing:-.03em;margin-bottom:30px;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .step .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+  .step h5{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin-bottom:12px}
+  .step p{font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+
+  .cta-band{padding:160px 0;text-align:center;position:relative;overflow:hidden;background:#070608}
+  .cta-band::before{content:"";position:absolute;left:50%;top:50%;width:1100px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(255,45,146,.15),transparent 60%);pointer-events:none}
+  .cta-band .container{position:relative;z-index:1}
+  .cta-band h2{font-family:var(--serif);font-size:120px;font-weight:400;line-height:1;letter-spacing:-.03em;max-width:1100px;margin:0 auto}
+  .cta-band h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cta-band p{margin:36px auto 0;max-width:520px;font-size:16px;line-height:1.65;color:var(--ink-2)}
+  .cta-band .row{margin-top:48px;display:flex;justify-content:center;gap:14px}
+
+  footer{border-top:1px solid var(--line);padding:60px 0 36px;background:#040305}
+  footer .row{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  footer .row a{color:var(--muted);margin-left:32px}
+  footer .row a:hover{color:var(--ink)}
+
+  /* ── BOOKING MODAL ── */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .modal-overlay.open{opacity:1;pointer-events:all}
+  .modal{background:#0c0a0d;border:1px solid var(--line-2);border-radius:16px;width:100%;max-width:520px;padding:48px;position:relative;transform:translateY(16px);transition:transform .3s}
+  .modal-overlay.open .modal{transform:translateY(0)}
+  .modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px;transition:color .2s}
+  .modal-close:hover{color:var(--ink)}
+  .modal-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .modal h2{font-family:var(--serif);font-size:44px;font-weight:400;letter-spacing:-.02em;line-height:1.05;margin-bottom:32px}
+  .modal h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .modal-sms{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:18px;border-radius:999px;background:var(--glow-grad);color:#fff;font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;transition:filter .25s,transform .25s;text-decoration:none}
+  .modal-sms:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .modal-or{display:flex;align-items:center;gap:16px;margin-bottom:28px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .modal-or::before,.modal-or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .modal form{display:flex;flex-direction:column;gap:14px}
+  .modal form input,.modal form select,.modal form textarea{background:#13101a;border:1px solid var(--line-2);border-radius:8px;padding:14px 16px;font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;width:100%}
+  .modal form input::placeholder,.modal form textarea::placeholder{color:var(--muted)}
+  .modal form input:focus,.modal form select:focus,.modal form textarea:focus{border-color:rgba(255,45,146,.5)}
+  .modal form select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%237e7882' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;background-color:#13101a;color:var(--ink)}
+  .modal form select option{background:#13101a}
+  .modal form textarea{resize:vertical;min-height:90px}
+  .modal form .modal-submit{background:var(--glow-grad);color:#fff;border:none;border-radius:999px;padding:16px 32px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:filter .25s,transform .25s;width:100%;margin-top:4px}
+  .modal form .modal-submit:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .modal-success{display:none;text-align:center;padding:24px 0}
+  .modal-success p{font-size:15px;color:var(--ink-2);line-height:1.6}
+
+  /* ── AI CHAT BUTTON ── */
+  .ai-chat-btn{position:fixed;bottom:32px;right:32px;z-index:100;width:56px;height:56px;border-radius:50%;background:var(--glow-grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(255,45,146,.4);transition:transform .25s,box-shadow .25s}
+  .ai-chat-btn:hover{transform:scale(1.08);box-shadow:0 8px 36px rgba(255,45,146,.55)}
+  .ai-chat-btn .sparkle{width:22px;height:22px}
+  .ai-panel{position:fixed;bottom:100px;right:32px;z-index:100;width:320px;background:#0c0a0d;border:1px solid var(--line-2);border-radius:16px;padding:32px;display:none}
+  .ai-panel.open{display:block}
+  .ai-panel .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .ai-panel h4{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.01em;margin-bottom:10px}
+  .ai-panel h4 em{font-style:italic;color:var(--pink)}
+  .ai-panel p{font-size:13px;line-height:1.6;color:var(--ink-2)}
+
+  /* filter hidden state */
+  .cat.hidden{display:none}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="container row">
+    <a href="index.html" class="logo"><img src="assets/hydraglow-logo.png" alt="HydraGlow"></a>
+    <ul>
+      <li><a href="services.html" class="active">Treatments</a></li>
+      <li><a href="#">Membership</a></li>
+      <li><a href="#">Concierge</a></li>
+      <li><a href="#">Approach</a></li>
+      <li><a href="#">Journal</a></li>
+    </ul>
+    <div class="right">
+      <span class="phone">+1 (305) 555 · 0142</span>
+      <button class="btn btn-glow" onclick="openModal()">Book a Drip <span class="arrow"></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="container">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Treatments</div>
+    <h1>The <em>menu</em>.<br>Twelve drips. Endless add-ons.</h1>
+    <p class="lede">Every drip is custom-mixed in our studio that morning. Choose by feeling, by goal, or let the nurse build to your bloodwork. Every price is all-inclusive — no nurse fee, no consult fee, no tip line.</p>
+  </div>
+</section>
+
+<div class="filters">
+  <div class="container row">
+    <div class="tabs">
+      <button class="tab active" data-filter="all">All Drips · 12</button>
+      <button class="tab" data-filter="hydration">Hydrate</button>
+      <button class="tab" data-filter="beauty">Beauty</button>
+      <button class="tab" data-filter="performance">Performance</button>
+      <button class="tab" data-filter="concierge">Concierge</button>
+    </div>
+    <div class="meta">
+      <span class="legend">
+        <span><span class="dot" style="background:#ff2d92"></span>Signature</span>
+        <span><span class="dot" style="background:#ff6a1a"></span>Member-favorite</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- FEATURED -->
+<div class="feature-card">
+  <div class="copy">
+    <div class="eyebrow"><span class="sparkle"></span> Signature · Most-booked</div>
+    <h3>The <em>Glow</em> Drip™</h3>
+    <p>Our reason for existing. Glutathione, high-dose vitamin C, biotin, NAD+ micro-shot and a hydration base. The drip your skin remembers two days later.</p>
+    <div class="specs">
+      <div><div class="k">Duration</div><div class="v">60–75<span style="font-family:var(--mono);font-size:13px;color:var(--muted);margin-left:6px">min</span></div></div>
+      <div><div class="k">Price</div><div class="v"><em>$385</em></div></div>
+      <div><div class="k">Member</div><div class="v"><em>$295</em></div></div>
+      <div><div class="k">Best for</div><div class="v">Photo day</div></div>
+    </div>
+    <button class="btn btn-glow" onclick="openModal('The Glow Drip™ — $385')">Book the Glow Drip <span class="arrow"></span></button>
+  </div>
+  <div class="image">
+    <span class="pill">▮ Signature drip</span>
+    <span class="label">"the&nbsp;photo<br>day&nbsp;drip"</span>
+  </div>
+</div>
+
+<!-- HYDRATION CATEGORY -->
+<section class="cat" data-category="hydration">
+  <div class="cat-head">
+    <div>
+      <span class="count">01 / 04 · IV Therapy</span>
+      <h2><em>Hydration</em> &amp; Recovery</h2>
+    </div>
+    <div class="desc">For the morning after, the long flight, the back-to-back deadlines. Electrolytes, B-complex, magnesium, and a fast plasma reset.</div>
+  </div>
+  <div class="row-list">
+    <div class="row-item">
+      <span class="n">01</span>
+      <div>
+        <div class="name">The <em>Reset</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Lactated Ringer's 1L</span>
+          <span class="tag">B-Complex</span>
+          <span class="tag">Magnesium</span>
+        </div>
+      </div>
+      <div class="desc">A clean baseline reset. The drip we recommend if it's your first time.</div>
+      <div class="dur">45 min</div>
+      <div class="price"><em>$185</em></div>
+      <button class="book" onclick="openModal('The Reset — $185')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">02</span>
+      <div>
+        <div class="name">The <em>Aftermath</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Saline 1.5L</span>
+          <span class="tag">Anti-Nausea</span>
+          <span class="tag">Toradol</span>
+          <span class="tag">B-12</span>
+        </div>
+      </div>
+      <div class="desc">Hangovers, jet lag, food poisoning, festival recovery. Our most house-called drip.</div>
+      <div class="dur">45 min</div>
+      <div class="price"><em>$245</em></div>
+      <button class="book" onclick="openModal('The Aftermath — $245')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">03</span>
+      <div>
+        <div class="name">The <em>Long Haul</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Electrolyte Forte</span>
+          <span class="tag">Zinc</span>
+          <span class="tag">Vit. D</span>
+          <span class="tag">Melatonin shot</span>
+        </div>
+      </div>
+      <div class="desc">For the seven-time-zone landing. Pairs beautifully with the in-room blackout protocol.</div>
+      <div class="dur">60 min</div>
+      <div class="price"><em>$265</em></div>
+      <button class="book" onclick="openModal('The Long Haul — $265')"><span class="arrow"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- BEAUTY CATEGORY -->
+<section class="cat" data-category="beauty">
+  <div class="cat-head">
+    <div>
+      <span class="count">02 / 04 · IV Therapy</span>
+      <h2><em>Beauty</em> &amp; Skin</h2>
+    </div>
+    <div class="desc">Glutathione, vitamin C, biotin and amino blends. Drips that ask collagen to wake up and pigment to settle down.</div>
+  </div>
+  <div class="row-list">
+    <div class="row-item">
+      <span class="n">04</span>
+      <div>
+        <div class="name">The <em>Glow</em> Drip™</div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Glutathione 2400mg</span>
+          <span class="tag">Vit. C 10g</span>
+          <span class="tag">Biotin</span>
+          <span class="tag">NAD+ shot</span>
+        </div>
+      </div>
+      <div class="desc">Signature. The drip our editorial clients run two days pre-shoot.</div>
+      <div class="dur">75 min</div>
+      <div class="price"><em>$385</em></div>
+      <button class="book" onclick="openModal('The Glow Drip™ — $385')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">05</span>
+      <div>
+        <div class="name">The <em>Lit</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Vit. C 15g</span>
+          <span class="tag">Zinc</span>
+          <span class="tag">Selenium</span>
+        </div>
+      </div>
+      <div class="desc">Lighter, citrus-forward, focused on radiance and lymphatic flow. Member-favorite.</div>
+      <div class="dur">50 min</div>
+      <div class="price"><em>$245</em></div>
+      <button class="book" onclick="openModal('The Lit — $245')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">06</span>
+      <div>
+        <div class="name">The <em>Wedding Week</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Glutathione 3000mg</span>
+          <span class="tag">Collagen Aminos</span>
+          <span class="tag">Vit. C 12g</span>
+          <span class="tag">Hair-Skin-Nails shot</span>
+        </div>
+      </div>
+      <div class="desc">A four-drip series across seven days. Book as a package. Bring your maid of honor — first-time guest rate applies.</div>
+      <div class="dur">75 min × 4</div>
+      <div class="price"><em>$1,250</em></div>
+      <button class="book" onclick="openModal('The Wedding Week — $1,250')"><span class="arrow"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMANCE CATEGORY -->
+<section class="cat" data-category="performance">
+  <div class="cat-head">
+    <div>
+      <span class="count">03 / 04 · IV Therapy</span>
+      <h2><em>Performance</em> &amp; NAD+</h2>
+    </div>
+    <div class="desc">For the people who refuse to coast. Mitochondrial support, methylated B-vitamins, and the longevity drips that take a little time.</div>
+  </div>
+  <div class="row-list">
+    <div class="row-item">
+      <span class="n">07</span>
+      <div>
+        <div class="name">The <em>Ignite</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">B-12 Methyl</span>
+          <span class="tag">Amino Blend</span>
+          <span class="tag">L-Carnitine</span>
+        </div>
+      </div>
+      <div class="desc">A 30-minute pre-workout drip. Member-built. No crash.</div>
+      <div class="dur">30 min</div>
+      <div class="price"><em>$195</em></div>
+      <button class="book" onclick="openModal('The Ignite — $195')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">08</span>
+      <div>
+        <div class="name">NAD+ <em>250mg</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">NAD+ 250mg</span>
+          <span class="tag">Saline base</span>
+          <span class="tag">B-Complex</span>
+        </div>
+      </div>
+      <div class="desc">The starter NAD+ session. Recline, audiobook, calm room.</div>
+      <div class="dur">90 min</div>
+      <div class="price"><em>$425</em></div>
+      <button class="book" onclick="openModal('NAD+ 250mg — $425')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">09</span>
+      <div>
+        <div class="name">NAD+ <em>500mg</em> Reset</div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">NAD+ 500mg</span>
+          <span class="tag">Glutathione push</span>
+          <span class="tag">Magnesium</span>
+        </div>
+      </div>
+      <div class="desc">The longevity-program standard. Quarterly cadence recommended.</div>
+      <div class="dur">150 min</div>
+      <div class="price"><em>$695</em></div>
+      <button class="book" onclick="openModal('NAD+ 500mg Reset — $695')"><span class="arrow"></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONCIERGE CATEGORY -->
+<section class="cat" data-category="concierge" style="padding-bottom:120px">
+  <div class="cat-head">
+    <div>
+      <span class="count">04 / 04 · Wellness Concierge</span>
+      <h2><em>Concierge</em> Programs</h2>
+    </div>
+    <div class="desc">Multi-month protocols that pair labs, drips, supplements and a dedicated concierge. By application — limited intake quarterly.</div>
+  </div>
+  <div class="row-list">
+    <div class="row-item">
+      <span class="n">10</span>
+      <div>
+        <div class="name">The <em>Baseline</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">90-panel bloodwork</span>
+          <span class="tag">DEXA</span>
+          <span class="tag">MD review</span>
+          <span class="tag">90-day plan</span>
+        </div>
+      </div>
+      <div class="desc">A 30-day diagnostic intake. Where every program begins.</div>
+      <div class="dur">30 days</div>
+      <div class="price"><em>$1,850</em></div>
+      <button class="book" onclick="openModal('The Baseline — $1,850')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">11</span>
+      <div>
+        <div class="name">The <em>Reset 90</em></div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">12 drips</span>
+          <span class="tag">Supplement plan</span>
+          <span class="tag">Bi-weekly MD</span>
+          <span class="tag">Hormone option</span>
+        </div>
+      </div>
+      <div class="desc">A 90-day energy, sleep and inflammation reset. Our most-requested program.</div>
+      <div class="dur">90 days</div>
+      <div class="price"><em>$5,200</em></div>
+      <button class="book" onclick="openModal('The Reset 90 — $5,200')"><span class="arrow"></span></button>
+    </div>
+    <div class="row-item">
+      <span class="n">12</span>
+      <div>
+        <div class="name">The <em>Longevity</em> Year</div>
+        <div class="tags" style="margin-top:14px">
+          <span class="tag">Quarterly labs</span>
+          <span class="tag">NAD+ series</span>
+          <span class="tag">Peptide protocol</span>
+          <span class="tag">House calls</span>
+        </div>
+      </div>
+      <div class="desc">A full year, by application. Cap of 24 members per studio. Currently a waitlist of ~6 weeks.</div>
+      <div class="dur">12 mo</div>
+      <div class="price"><em>$24,000</em></div>
+      <button class="book" onclick="openModal('The Longevity Year — $24,000')"><span class="arrow"></span></button>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ADD-ONS -->
+<section class="addons">
+  <div class="container">
+    <div class="addons-head">
+      <h2>Shots &amp; <em>add-ons</em></h2>
+      <p class="desc">Push to any drip, or grab on the way out. Members get three complimentary push-shots per month.</p>
+    </div>
+    <div class="addons-grid">
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $45</span></div>
+        <h4>B-12 <em>Methyl</em></h4>
+        <p>Methylated, fast-acting. Energy without the jitter.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $75</span></div>
+        <h4><em>Glutathione</em> Push</h4>
+        <p>2400mg, slow IV push. Skin-clarity in a syringe.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $65</span></div>
+        <h4>NAD+ <em>Micro</em></h4>
+        <p>100mg add-on. Layer onto any drip for a noticeable lift.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $55</span></div>
+        <h4>Magnesium <em>Calm</em></h4>
+        <p>Slow drip. Headaches, cramps, the day-before-period drip.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $40</span></div>
+        <h4>Vitamin D + <em>K2</em></h4>
+        <p>For winters, indoor seasons, and anyone whose D came back &lt; 30.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $85</span></div>
+        <h4>Amino <em>Stack</em></h4>
+        <p>BCAA + L-Carnitine + Taurine. Lift-day favorite.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $50</span></div>
+        <h4><em>Biotin</em> Boost</h4>
+        <p>For the wedding-week regulars and the hair-grow protocol.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $35</span></div>
+        <h4>Anti-<em>Nausea</em></h4>
+        <p>Zofran push. The drip on top of the recovery drip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <h2>How a HydraGlow <em>appointment</em><br>actually works.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="k">Step One</div>
+        <h5>Book in the app — or text the line.</h5>
+        <p>Studio, suite, or house call. Members get a same-day slot guaranteed within zone.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="k">Step Two</div>
+        <h5>Brief intake with a nurse.</h5>
+        <p>Five minutes of vitals, recent labs (if any), goals for the week. Drip is then mixed in front of you.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="k">Step Three</div>
+        <h5>Settle in. Recline. Drift.</h5>
+        <p>Eye mask, weighted blanket, a curated playlist or a hard-loaded audiobook. Hospital-grade pump, hotel-grade everything else.</p>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <div class="k">Step Four</div>
+        <h5>Glow walks out with you.</h5>
+        <p>Light snack, electrolyte to go, and notes synced back to your chart. We text 36 hours later to check in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to <em>glow</em>?</h2>
+    <p>Book any drip from the menu, or message the concierge if you'd rather we build something to your week. Same-day in-studio almost always available.</p>
+    <div class="row">
+      <button class="btn btn-glow" onclick="openModal()">Book a Drip <span class="arrow"></span></button>
+      <a class="btn btn-ghost" href="sms:+13055550142">Text the Concierge</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container row">
+    <span>© 2026 HydraGlow LLC</span>
+    <div>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Notice of Privacy Practices</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div class="modal-eyebrow"><span class="sparkle" style="width:10px;height:10px"></span> HydraGlow Concierge</div>
+    <h2>Book a <em>Drip</em>.</h2>
+    <a class="modal-sms" href="sms:+13055550142">
+      <span class="sparkle" style="width:16px;height:16px"></span>
+      Text to Book · (305) 555-0142
+    </a>
+    <div class="modal-or">or send a message</div>
+    <form id="modal-form" action="mailto:hello@hydraglow.com" method="POST" enctype="text/plain" onsubmit="handleFormSubmit(event)">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="tel" name="phone" placeholder="Phone number">
+      <input type="email" name="email" placeholder="Email address" required>
+      <select name="service" id="modal-service-select">
+        <option value="" disabled selected>Interested in…</option>
+        <option>The Glow Drip™ — $385</option>
+        <option>The Reset — $185</option>
+        <option>The Aftermath — $245</option>
+        <option>The Long Haul — $265</option>
+        <option>The Lit — $245</option>
+        <option>The Wedding Week — $1,250</option>
+        <option>The Ignite — $195</option>
+        <option>NAD+ 250mg — $425</option>
+        <option>NAD+ 500mg Reset — $695</option>
+        <option>The Baseline — $1,850</option>
+        <option>The Reset 90 — $5,200</option>
+        <option>The Longevity Year — $24,000</option>
+        <option>Aura Membership — $240/mo</option>
+        <option>Halo Membership — $680/mo</option>
+        <option>Not sure — help me choose</option>
+      </select>
+      <textarea name="message" placeholder="Anything else? (preferred date, location, questions…)"></textarea>
+      <button type="submit" class="modal-submit">Send Message <span class="arrow"></span></button>
+    </form>
+    <div class="modal-success" id="modal-success">
+      <span class="sparkle" style="width:32px;height:32px;display:block;margin:0 auto 16px"></span>
+      <p>We got it. Expect a text or email within a few hours.<br>Can't wait? Text us directly at <strong>(305) 555-0142</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AI CHAT BUTTON (future hook) -->
+<button class="ai-chat-btn" id="ai-chat-btn" onclick="toggleAiPanel()" aria-label="Ask HydraGlow">
+  <span class="sparkle"></span>
+</button>
+<div class="ai-panel" id="ai-panel">
+  <div class="eyebrow">Ask HydraGlow</div>
+  <h4>Your personal <em>wellness</em> concierge.</h4>
+  <p>AI-powered guidance coming soon — service recommendations, protocol questions, and booking help, all in one place.</p>
+</div>
+
+<script>
+  // Filter tabs
+  const tabs = document.querySelectorAll('.tab');
+  const cats = document.querySelectorAll('.cat[data-category]');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var filter = tab.getAttribute('data-filter');
+      cats.forEach(function(cat) {
+        if (filter === 'all' || cat.getAttribute('data-category') === filter) {
+          cat.classList.remove('hidden');
+        } else {
+          cat.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Modal
+  function openModal(service) {
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (service) {
+      var sel = document.getElementById('modal-service-select');
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text.startsWith(service.split(' — ')[0])) {
+          sel.selectedIndex = i; break;
+        }
+      }
+    }
+  }
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+  }
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    document.getElementById('modal-form').style.display = 'none';
+    document.getElementById('modal-success').style.display = 'block';
+  }
+  function toggleAiPanel() {
+    document.getElementById('ai-panel').classList.toggle('open');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
