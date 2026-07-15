@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>HydraGlow — Treatments</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Twelve IV drips, endless add-ons. Every drip custom-mixed that morning. Hydration, beauty, performance, NAD+, and concierge programs.">
+<meta name="description" content="Six IV drips, real add-ons. Every drip mixed to order — all-inclusive pricing, no hidden fees.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
   .cat .cat-head .count{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:block}
 
   .row-list{border-top:1px solid var(--line)}
-  .row-item{display:grid;grid-template-columns:60px 1.6fr 1fr 120px 140px 90px;gap:32px;align-items:center;padding:32px 4px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding .3s}
+  .row-item{display:grid;grid-template-columns:60px 1.6fr 1fr 140px 90px;gap:32px;align-items:center;padding:32px 4px;border-bottom:1px solid var(--line);position:relative;transition:background .3s,padding .3s}
   .row-item:hover{background:linear-gradient(90deg,rgba(255,45,146,.05),rgba(255,106,26,.02));padding-left:14px}
   .row-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--glow-grad);opacity:0;transition:opacity .25s}
   .row-item:hover::before{opacity:1}
@@ -116,7 +116,7 @@
   .addons-head .desc{max-width:360px;font-size:14px;line-height:1.65;color:var(--ink-2)}
   .addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
   .addon{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s}
-  .addon:nth-child(4n){border-right:none}
+  .addon:nth-child(4n),.addon:last-child{border-right:none}
   .addon:hover{background:linear-gradient(180deg,rgba(255,45,146,.05),transparent)}
   .addon .top{display:flex;justify-content:space-between;align-items:start;margin-bottom:48px}
   .addon .top .sparkle{width:16px;height:16px;opacity:.7}
@@ -197,7 +197,7 @@
     <a href="index.html" class="logo"><img src="assets/hydraglow-logo-light.png" alt="HydraGlow"></a>
     <ul>
       <li><a href="services.html" class="active">Treatments</a></li>
-      <li><a href="menu.html">Menu</a></li>
+      <li><a href="index.html#iv-therapy">IV Therapy</a></li>
       <li><a href="#">Membership</a></li>
       <li><a href="#">Concierge</a></li>
       <li><a href="#">Approach</a></li>
@@ -213,28 +213,10 @@
 <section class="page-head">
   <div class="container">
     <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span>Treatments</div>
-    <h1>The <em>menu</em>.<br>Twelve drips. Endless add-ons.</h1>
-    <p class="lede">Every drip is custom-mixed in our studio that morning. Choose by feeling, by goal, or let the nurse build to your bloodwork. Every price is all-inclusive — no nurse fee, no consult fee, no tip line.</p>
+    <h1>The <em>drips</em>.<br>Six blends. Real add-ons.</h1>
+    <p class="lede">Every drip is mixed to order. Choose by how you're feeling or what you're chasing — energy, recovery, or relief. Every price is all-inclusive — no nurse fee, no consult fee, no tip line.</p>
   </div>
 </section>
-
-<div class="filters">
-  <div class="container row">
-    <div class="tabs">
-      <button class="tab active" data-filter="all">All Drips · 12</button>
-      <button class="tab" data-filter="hydration">Hydrate</button>
-      <button class="tab" data-filter="beauty">Beauty</button>
-      <button class="tab" data-filter="performance">Performance</button>
-      <button class="tab" data-filter="concierge">Concierge</button>
-    </div>
-    <div class="meta">
-      <span class="legend">
-        <span><span class="dot" style="background:#ff2d92"></span>Signature</span>
-        <span><span class="dot" style="background:#ff6a1a"></span>Member-favorite</span>
-      </span>
-    </div>
-  </div>
-</div>
 
 <div class="container">
 
@@ -242,260 +224,117 @@
 <div class="feature-card">
   <div class="copy">
     <div class="eyebrow"><span class="sparkle"></span> Signature · Most-booked</div>
-    <h3>The <em>Glow</em> Drip™</h3>
-    <p>Our reason for existing. Glutathione, high-dose vitamin C, biotin, NAD+ micro-shot and a hydration base. The drip your skin remembers two days later.</p>
+    <h3>Glow <em>Getter</em></h3>
+    <p>Our signature Myer's cocktail package to support energy, recovery, and your glow from within.</p>
     <div class="specs">
-      <div><div class="k">Duration</div><div class="v">60–75<span style="font-family:var(--mono);font-size:13px;color:var(--muted);margin-left:6px">min</span></div></div>
-      <div><div class="k">Price</div><div class="v"><em>$385</em></div></div>
-      <div><div class="k">Member</div><div class="v"><em>$295</em></div></div>
-      <div><div class="k">Best for</div><div class="v">Photo day</div></div>
+      <div><div class="k">Price</div><div class="v"><em>$299</em></div></div>
+      <div><div class="k">Member</div><div class="v"><em>$239</em></div></div>
+      <div><div class="k">Ingredients</div><div class="v" style="font-family:var(--mono);font-size:15px;font-weight:400">B Complex · B12 · Mg · Vit. C</div></div>
     </div>
-    <button class="btn btn-glow" onclick="openModal('The Glow Drip™ — $385')">Book the Glow Drip <span class="arrow"></span></button>
+    <button class="btn btn-glow" onclick="openModal('Glow Getter — $299')">Book Glow Getter <span class="arrow"></span></button>
   </div>
   <div class="image">
     <video autoplay muted loop playsinline>
       <source src="assets/glow-drip-photoshoot.mp4" type="video/mp4">
     </video>
     <span class="pill">▮ Signature drip</span>
-    <span class="label">"the&nbsp;photo<br>day&nbsp;drip"</span>
+    <span class="label">"glow&nbsp;from<br>within"</span>
   </div>
 </div>
 
-<!-- HYDRATION CATEGORY -->
-<section class="cat" data-category="hydration">
+<!-- DRIPS -->
+<section class="cat" style="padding-bottom:120px">
   <div class="cat-head">
     <div>
-      <span class="count">01 / 04 · IV Therapy</span>
-      <h2><em>Hydration</em> &amp; Recovery</h2>
+      <span class="count">IV Therapy</span>
+      <h2>The <em>Drips</em></h2>
     </div>
-    <div class="desc">For the morning after, the long flight, the back-to-back deadlines. Electrolytes, B-complex, magnesium, and a fast plasma reset.</div>
+    <div class="desc">Six IV blends, mixed to order — hydration, recovery, energy, and everything in between.</div>
   </div>
   <div class="row-list">
     <div class="row-item">
       <span class="n">01</span>
       <div>
-        <div class="name">The <em>Reset</em></div>
+        <div class="name">Basic <em>Batch</em></div>
         <div class="tags" style="margin-top:14px">
-          <span class="tag">Lactated Ringer's 1L</span>
-          <span class="tag">B-Complex</span>
-          <span class="tag">Magnesium</span>
+          <span class="tag">Lactated Ringers</span>
         </div>
       </div>
-      <div class="desc">A clean baseline reset. The drip we recommend if it's your first time.</div>
-      <div class="dur">45 min</div>
-      <div class="price"><em>$185</em></div>
-      <button class="book" onclick="openModal('The Reset — $185')"><span class="arrow"></span></button>
+      <div class="desc">A simple, no-frills hydration drip designed to refresh, rehydrate and keep the good times glowing.</div>
+      <div class="price"><em>$199</em></div>
+      <button class="book" onclick="openModal('Basic Batch — $199')"><span class="arrow"></span></button>
     </div>
     <div class="row-item">
       <span class="n">02</span>
       <div>
-        <div class="name">The <em>Aftermath</em></div>
+        <div class="name">The <em>Morning After</em></div>
         <div class="tags" style="margin-top:14px">
-          <span class="tag">Saline 1.5L</span>
-          <span class="tag">Anti-Nausea</span>
+          <span class="tag">Zofran</span>
           <span class="tag">Toradol</span>
-          <span class="tag">B-12</span>
+          <span class="tag">B12</span>
         </div>
       </div>
-      <div class="desc">Hangovers, jet lag, food poisoning, festival recovery. Our most house-called drip.</div>
-      <div class="dur">45 min</div>
-      <div class="price"><em>$245</em></div>
-      <button class="book" onclick="openModal('The Aftermath — $245')"><span class="arrow"></span></button>
+      <div class="desc">Hangover relief drip designed to replenish lost nutrients, relieve the nausea, headache and fatigue that come the morning after.</div>
+      <div class="price"><em>$249</em></div>
+      <button class="book" onclick="openModal('The Morning After — $249')"><span class="arrow"></span></button>
     </div>
     <div class="row-item">
       <span class="n">03</span>
       <div>
-        <div class="name">The <em>Long Haul</em></div>
+        <div class="name">Glow <em>Getter</em></div>
         <div class="tags" style="margin-top:14px">
-          <span class="tag">Electrolyte Forte</span>
-          <span class="tag">Zinc</span>
-          <span class="tag">Vit. D</span>
-          <span class="tag">Melatonin shot</span>
+          <span class="tag">B Complex</span>
+          <span class="tag">B12</span>
+          <span class="tag">Magnesium</span>
+          <span class="tag">Vitamin C</span>
         </div>
       </div>
-      <div class="desc">For the seven-time-zone landing. Pairs beautifully with the in-room blackout protocol.</div>
-      <div class="dur">60 min</div>
-      <div class="price"><em>$265</em></div>
-      <button class="book" onclick="openModal('The Long Haul — $265')"><span class="arrow"></span></button>
+      <div class="desc">Our signature Myer's cocktail package to support energy, recovery, and your glow from within.</div>
+      <div class="price"><em>$299</em></div>
+      <button class="book" onclick="openModal('Glow Getter — $299')"><span class="arrow"></span></button>
     </div>
-  </div>
-</section>
-
-<!-- BEAUTY CATEGORY -->
-<section class="cat" data-category="beauty">
-  <div class="cat-head">
-    <div>
-      <span class="count">02 / 04 · IV Therapy</span>
-      <h2><em>Beauty</em> &amp; Skin</h2>
-    </div>
-    <div class="desc">Glutathione, vitamin C, biotin and amino blends. Drips that ask collagen to wake up and pigment to settle down.</div>
-  </div>
-  <div class="row-list">
     <div class="row-item">
       <span class="n">04</span>
       <div>
-        <div class="name">The <em>Glow</em> Drip™</div>
+        <div class="name">Game <em>Over</em></div>
         <div class="tags" style="margin-top:14px">
-          <span class="tag">Glutathione 2400mg</span>
-          <span class="tag">Vit. C 10g</span>
-          <span class="tag">Biotin</span>
-          <span class="tag">NAD+ shot</span>
+          <span class="tag">Magnesium</span>
+          <span class="tag">Glutathione</span>
+          <span class="tag">Toradol</span>
         </div>
       </div>
-      <div class="desc">Signature. The drip our editorial clients run two days pre-shoot.</div>
-      <div class="dur">75 min</div>
-      <div class="price"><em>$385</em></div>
-      <button class="book" onclick="openModal('The Glow Drip™ — $385')"><span class="arrow"></span></button>
+      <div class="desc">A powerful athletic recovery blend designed to help ease sore muscles and joints, support recovery and get you back in the game.</div>
+      <div class="price"><em>$299</em></div>
+      <button class="book" onclick="openModal('Game Over — $299')"><span class="arrow"></span></button>
     </div>
     <div class="row-item">
       <span class="n">05</span>
       <div>
-        <div class="name">The <em>Lit</em></div>
+        <div class="name">Sick &amp; <em>Tired</em></div>
         <div class="tags" style="margin-top:14px">
-          <span class="tag">Vit. C 15g</span>
+          <span class="tag">B Complex</span>
+          <span class="tag">B12</span>
+          <span class="tag">Vitamin C</span>
           <span class="tag">Zinc</span>
-          <span class="tag">Selenium</span>
         </div>
       </div>
-      <div class="desc">Lighter, citrus-forward, focused on radiance and lymphatic flow. Member-favorite.</div>
-      <div class="dur">50 min</div>
-      <div class="price"><em>$245</em></div>
-      <button class="book" onclick="openModal('The Lit — $245')"><span class="arrow"></span></button>
+      <div class="desc">A refreshing blend designed to support immune health, energy, and overall wellness when you're feeling run down.</div>
+      <div class="price"><em>$349</em></div>
+      <button class="book" onclick="openModal('Sick &amp; Tired — $349')"><span class="arrow"></span></button>
     </div>
     <div class="row-item">
       <span class="n">06</span>
       <div>
-        <div class="name">The <em>Wedding Week</em></div>
+        <div class="name">Gut <em>Feeling</em></div>
         <div class="tags" style="margin-top:14px">
-          <span class="tag">Glutathione 3000mg</span>
-          <span class="tag">Collagen Aminos</span>
-          <span class="tag">Vit. C 12g</span>
-          <span class="tag">Hair-Skin-Nails shot</span>
-        </div>
-      </div>
-      <div class="desc">A four-drip series across seven days. Book as a package. Bring your maid of honor — first-time guest rate applies.</div>
-      <div class="dur">75 min × 4</div>
-      <div class="price"><em>$1,250</em></div>
-      <button class="book" onclick="openModal('The Wedding Week — $1,250')"><span class="arrow"></span></button>
-    </div>
-  </div>
-</section>
-
-<!-- PERFORMANCE CATEGORY -->
-<section class="cat" data-category="performance">
-  <div class="cat-head">
-    <div>
-      <span class="count">03 / 04 · IV Therapy</span>
-      <h2><em>Performance</em> &amp; NAD+</h2>
-    </div>
-    <div class="desc">For the people who refuse to coast. Mitochondrial support, methylated B-vitamins, and the longevity drips that take a little time.</div>
-  </div>
-  <div class="row-list">
-    <div class="row-item">
-      <span class="n">07</span>
-      <div>
-        <div class="name">The <em>Ignite</em></div>
-        <div class="tags" style="margin-top:14px">
-          <span class="tag">B-12 Methyl</span>
-          <span class="tag">Amino Blend</span>
-          <span class="tag">L-Carnitine</span>
-        </div>
-      </div>
-      <div class="desc">A 30-minute pre-workout drip. Member-built. No crash.</div>
-      <div class="dur">30 min</div>
-      <div class="price"><em>$195</em></div>
-      <button class="book" onclick="openModal('The Ignite — $195')"><span class="arrow"></span></button>
-    </div>
-    <div class="row-item">
-      <span class="n">08</span>
-      <div>
-        <div class="name">NAD+ <em>250mg</em></div>
-        <div class="tags" style="margin-top:14px">
-          <span class="tag">NAD+ 250mg</span>
-          <span class="tag">Saline base</span>
-          <span class="tag">B-Complex</span>
-        </div>
-      </div>
-      <div class="desc">The starter NAD+ session. Recline, audiobook, calm room.</div>
-      <div class="dur">90 min</div>
-      <div class="price"><em>$425</em></div>
-      <button class="book" onclick="openModal('NAD+ 250mg — $425')"><span class="arrow"></span></button>
-    </div>
-    <div class="row-item">
-      <span class="n">09</span>
-      <div>
-        <div class="name">NAD+ <em>500mg</em> Reset</div>
-        <div class="tags" style="margin-top:14px">
-          <span class="tag">NAD+ 500mg</span>
-          <span class="tag">Glutathione push</span>
+          <span class="tag">B Complex</span>
+          <span class="tag">Zofran</span>
           <span class="tag">Magnesium</span>
         </div>
       </div>
-      <div class="desc">The longevity-program standard. Quarterly cadence recommended.</div>
-      <div class="dur">150 min</div>
-      <div class="price"><em>$695</em></div>
-      <button class="book" onclick="openModal('NAD+ 500mg Reset — $695')"><span class="arrow"></span></button>
-    </div>
-  </div>
-</section>
-
-<!-- CONCIERGE CATEGORY -->
-<section class="cat" data-category="concierge" style="padding-bottom:120px">
-  <div class="cat-head">
-    <div>
-      <span class="count">04 / 04 · Wellness Concierge</span>
-      <h2><em>Concierge</em> Programs</h2>
-    </div>
-    <div class="desc">Multi-month protocols that pair labs, drips, supplements and a dedicated concierge. By application — limited intake quarterly.</div>
-  </div>
-  <div class="row-list">
-    <div class="row-item">
-      <span class="n">10</span>
-      <div>
-        <div class="name">The <em>Baseline</em></div>
-        <div class="tags" style="margin-top:14px">
-          <span class="tag">90-panel bloodwork</span>
-          <span class="tag">DEXA</span>
-          <span class="tag">MD review</span>
-          <span class="tag">90-day plan</span>
-        </div>
-      </div>
-      <div class="desc">A 30-day diagnostic intake. Where every program begins.</div>
-      <div class="dur">30 days</div>
-      <div class="price"><em>$1,850</em></div>
-      <button class="book" onclick="openModal('The Baseline — $1,850')"><span class="arrow"></span></button>
-    </div>
-    <div class="row-item">
-      <span class="n">11</span>
-      <div>
-        <div class="name">The <em>Reset 90</em></div>
-        <div class="tags" style="margin-top:14px">
-          <span class="tag">12 drips</span>
-          <span class="tag">Supplement plan</span>
-          <span class="tag">Bi-weekly MD</span>
-          <span class="tag">Hormone option</span>
-        </div>
-      </div>
-      <div class="desc">A 90-day energy, sleep and inflammation reset. Our most-requested program.</div>
-      <div class="dur">90 days</div>
-      <div class="price"><em>$5,200</em></div>
-      <button class="book" onclick="openModal('The Reset 90 — $5,200')"><span class="arrow"></span></button>
-    </div>
-    <div class="row-item">
-      <span class="n">12</span>
-      <div>
-        <div class="name">The <em>Longevity</em> Year</div>
-        <div class="tags" style="margin-top:14px">
-          <span class="tag">Quarterly labs</span>
-          <span class="tag">NAD+ series</span>
-          <span class="tag">Peptide protocol</span>
-          <span class="tag">House calls</span>
-        </div>
-      </div>
-      <div class="desc">A full year, by application. Cap of 24 members per studio. Currently a waitlist of ~6 weeks.</div>
-      <div class="dur">12 mo</div>
-      <div class="price"><em>$24,000</em></div>
-      <button class="book" onclick="openModal('The Longevity Year — $24,000')"><span class="arrow"></span></button>
+      <div class="desc">Our stomach bug blend designed to relieve cramping, nausea and fatigue and get you feeling back to yourself again.</div>
+      <div class="price"><em>$249</em></div>
+      <button class="book" onclick="openModal('Gut Feeling — $249')"><span class="arrow"></span></button>
     </div>
   </div>
 </section>
@@ -507,55 +346,50 @@
   <div class="container">
     <div class="addons-head">
       <h2>Shots &amp; <em>add-ons</em></h2>
-      <p class="desc">Push to any drip, or grab on the way out. Members get three complimentary push-shots per month.</p>
+      <p class="desc">Add any of these to your drip, or book as a standalone push.</p>
     </div>
     <div class="addons-grid">
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $45</span></div>
-        <h4>B-12 <em>Methyl</em></h4>
-        <p>Methylated, fast-acting. Energy without the jitter.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $39</span></div>
+        <h4><em>Zofran</em></h4>
+        <p>Anti-nausea push. Relief when queasy is the whole problem.</p>
       </div>
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $75</span></div>
-        <h4><em>Glutathione</em> Push</h4>
-        <p>2400mg, slow IV push. Skin-clarity in a syringe.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $39</span></div>
+        <h4><em>Toradol</em></h4>
+        <p>Non-narcotic pain relief for headaches, cramps, and soreness.</p>
       </div>
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $65</span></div>
-        <h4>NAD+ <em>Micro</em></h4>
-        <p>100mg add-on. Layer onto any drip for a noticeable lift.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $39</span></div>
+        <h4><em>B12</em></h4>
+        <p>Methylcobalamin boost for sustained energy and mental clarity.</p>
       </div>
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $55</span></div>
-        <h4>Magnesium <em>Calm</em></h4>
-        <p>Slow drip. Headaches, cramps, the day-before-period drip.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $49</span></div>
+        <h4><em>Magnesium</em></h4>
+        <p>Muscle relaxation, headache relief, and better sleep.</p>
       </div>
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $40</span></div>
-        <h4>Vitamin D + <em>K2</em></h4>
-        <p>For winters, indoor seasons, and anyone whose D came back &lt; 30.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $49</span></div>
+        <h4><em>Zinc</em></h4>
+        <p>Immune support when you need it most.</p>
       </div>
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $85</span></div>
-        <h4>Amino <em>Stack</em></h4>
-        <p>BCAA + L-Carnitine + Taurine. Lift-day favorite.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $59</span></div>
+        <h4>Vitamin <em>C</em></h4>
+        <p>High-dose antioxidant and immune support.</p>
       </div>
       <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $50</span></div>
-        <h4><em>Biotin</em> Boost</h4>
-        <p>For the wedding-week regulars and the hair-grow protocol.</p>
-      </div>
-      <div class="addon">
-        <div class="top"><span class="sparkle"></span><span class="price">+ $35</span></div>
-        <h4>Anti-<em>Nausea</em></h4>
-        <p>Zofran push. The drip on top of the recovery drip.</p>
+        <div class="top"><span class="sparkle"></span><span class="price">+ $59</span></div>
+        <h4><em>Glutathione</em></h4>
+        <p>The master antioxidant. Detox and skin brightening in a single push.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="process">
+<section class="process" id="process">
   <div class="container">
     <h2>How a HydraGlow <em>appointment</em><br>actually works.</h2>
     <div class="steps">
@@ -628,20 +462,12 @@
       <input type="email" name="email" placeholder="Email address" required>
       <select name="service" id="modal-service-select">
         <option value="" disabled selected>Interested in…</option>
-        <option>The Glow Drip™ — $385</option>
-        <option>The Reset — $185</option>
-        <option>The Aftermath — $245</option>
-        <option>The Long Haul — $265</option>
-        <option>The Lit — $245</option>
-        <option>The Wedding Week — $1,250</option>
-        <option>The Ignite — $195</option>
-        <option>NAD+ 250mg — $425</option>
-        <option>NAD+ 500mg Reset — $695</option>
-        <option>The Baseline — $1,850</option>
-        <option>The Reset 90 — $5,200</option>
-        <option>The Longevity Year — $24,000</option>
-        <option>Aura Membership — $240/mo</option>
-        <option>Halo Membership — $680/mo</option>
+        <option>Basic Batch — $199</option>
+        <option>The Morning After — $249</option>
+        <option>Glow Getter — $299</option>
+        <option>Game Over — $299</option>
+        <option>Sick &amp; Tired — $349</option>
+        <option>Gut Feeling — $249</option>
         <option>Not sure — help me choose</option>
       </select>
       <textarea name="message" placeholder="Anything else? (preferred date, location, questions…)"></textarea>
@@ -665,36 +491,9 @@
 </div>
 
 <script>
-  // Filter tabs
-  const tabs = document.querySelectorAll('.tab');
-  const cats = document.querySelectorAll('.cat[data-category]');
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      tabs.forEach(function(t) { t.classList.remove('active'); });
-      tab.classList.add('active');
-      var filter = tab.getAttribute('data-filter');
-      cats.forEach(function(cat) {
-        if (filter === 'all' || cat.getAttribute('data-category') === filter) {
-          cat.classList.remove('hidden');
-        } else {
-          cat.classList.add('hidden');
-        }
-      });
-    });
-  });
-
   // Modal
   function openModal(service) {
-    document.getElementById('modal-overlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (service) {
-      var sel = document.getElementById('modal-service-select');
-      for (var i = 0; i < sel.options.length; i++) {
-        if (sel.options[i].text.startsWith(service.split(' — ')[0])) {
-          sel.selectedIndex = i; break;
-        }
-      }
-    }
+    window.open('https://www.vagaro.com/hydraglownash/services', '_blank', 'noopener');
   }
   function closeModal() {
     document.getElementById('modal-overlay').classList.remove('open');

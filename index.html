@@ -26,7 +26,9 @@
     --mono:"JetBrains Mono", ui-monospace, monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  section[id]{scroll-margin-top:78px}
   body{overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
@@ -64,8 +66,9 @@
   .nav-chevron{display:inline-block;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);flex-shrink:0;transition:transform .2s}
   .has-dropdown:hover .nav-chevron{transform:rotate(225deg) translateY(-2px)}
   .nav-badge{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--glow-grad);color:#fff;padding:2px 7px;border-radius:99px;margin-left:4px}
+  .has-dropdown{padding-bottom:12px;margin-bottom:-12px}
 
-  .dropdown{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:10px;padding:8px;min-width:210px;box-shadow:0 16px 48px rgba(0,0,0,.1);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:51}
+  .dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border:1px solid var(--line);border-radius:10px;padding:8px;min-width:210px;box-shadow:0 16px 48px rgba(0,0,0,.1);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:51}
   .has-dropdown:hover .dropdown{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
   .dropdown a{display:block;padding:10px 14px;font-size:13px;border-radius:6px;color:var(--ink-2);letter-spacing:.04em;font-weight:400;transition:background .15s,color .15s}
   .dropdown a:hover{background:var(--bg-2);color:var(--ink)}
@@ -81,6 +84,7 @@
   .hero .eyebrow{color:var(--muted);margin-bottom:0}
   .hero .lede{font-size:18px;line-height:1.58;color:var(--ink-2);max-width:480px;font-weight:300}
   .hero .cta-row{margin-top:40px;display:flex;gap:14px;align-items:center}
+  .hero-tagline{margin-top:22px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:23px;color:var(--pink);letter-spacing:-.01em}
   .hero .stat-row{margin-top:56px;display:flex;gap:48px;border-top:1px solid var(--line);padding-top:32px;width:fit-content}
   .hero .stat-row div .num{font-family:var(--serif);font-size:40px;font-weight:400;letter-spacing:-.02em;color:var(--ink);line-height:1}
   .hero .stat-row div .lbl{margin-top:6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:var(--mono)}
@@ -213,6 +217,57 @@
   .availability-bar p{font-size:14px;color:var(--ink-2);line-height:1.5}
   .availability-bar strong{color:var(--ink)}
 
+  /* ── IV THERAPY (menu) ── */
+  .pricing-note{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);padding:20px 0}
+  .pricing-note .inner{display:flex;align-items:center;justify-content:center;gap:40px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .pricing-note .inner span{display:flex;align-items:center;gap:8px}
+  .pricing-note .inner .dot{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+
+  .menu-body{padding:0 0 80px;background:var(--bg)}
+  .menu-cat{padding:80px 0 0}
+  .menu-cat-head{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:0;padding-bottom:36px;border-bottom:1px solid var(--line)}
+  .menu-cat-head h2{font-family:var(--serif);font-size:72px;font-weight:400;line-height:.95;letter-spacing:-.022em}
+  .menu-cat-head h2 em{font-style:italic;color:var(--pink)}
+  .menu-cat-head .cat-desc{max-width:380px;font-size:14px;line-height:1.65;color:var(--ink-2)}
+
+  .menu-item{display:grid;grid-template-columns:44px 1fr auto 52px;gap:28px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);position:relative;transition:background .25s,padding .25s}
+  .menu-item:hover{background:linear-gradient(90deg,rgba(255,45,146,.04),transparent 60%);padding-left:12px}
+  .menu-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--glow-grad);opacity:0;transition:opacity .25s}
+  .menu-item:hover::before{opacity:1}
+  .menu-item .idx{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+  .menu-item .name{font-family:var(--serif);font-size:36px;font-weight:400;letter-spacing:-.015em;line-height:1.05;margin-bottom:6px}
+  .menu-item .name em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .menu-item .desc{font-size:13px;line-height:1.5;color:var(--ink-2);max-width:520px}
+  .menu-item .tags-row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .menu-item .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);padding:4px 8px;border:1px solid var(--line);border-radius:99px}
+  .menu-item .price-col{text-align:right}
+  .menu-item .price{font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.015em;white-space:nowrap}
+  .menu-item .price em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .menu-item .member-price{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+  .menu-item .member-price span{color:var(--ink-2)}
+  .menu-item .book-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:transparent;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;flex:0 0 auto}
+  .menu-item .book-btn:hover{background:var(--glow-grad);border-color:transparent}
+  .menu-item .book-btn svg{width:14px;height:14px;pointer-events:none}
+  .menu-item.featured::before{opacity:1}
+  .menu-item.featured .name{font-size:42px}
+
+  .addons{padding:100px 0;background:var(--bg-2);border-top:1px solid var(--line)}
+  .addons-head{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:56px}
+  .addons-head h2{font-family:var(--serif);font-size:72px;font-weight:400;line-height:1;letter-spacing:-.02em}
+  .addons-head h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .addons-head .desc{max-width:360px;font-size:14px;line-height:1.65;color:var(--ink-2)}
+  .addons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+  .addon{padding:32px 28px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s}
+  .addon:nth-child(4n){border-right:none}
+  .addon:nth-child(n+5){border-bottom:none}
+  .addon:hover{background:linear-gradient(180deg,rgba(255,45,146,.05),transparent)}
+  .addon .top{display:flex;justify-content:space-between;align-items:start;margin-bottom:44px}
+  .addon .top .sparkle{width:15px;height:15px;opacity:.7}
+  .addon .top .price{font-family:var(--mono);font-size:13px;color:var(--ink);letter-spacing:.04em}
+  .addon h4{font-family:var(--serif);font-size:28px;font-weight:400;letter-spacing:-.015em;line-height:1.05;margin-bottom:8px}
+  .addon h4 em{font-style:italic;color:var(--pink)}
+  .addon p{font-size:13px;line-height:1.55;color:var(--ink-2)}
+
   /* ── BOOKING MODAL ── */
   .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
   .modal-overlay.open{opacity:1;pointer-events:all}
@@ -250,6 +305,15 @@
   .ai-panel h4{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.01em;margin-bottom:10px}
   .ai-panel h4 em{font-style:italic;color:var(--pink)}
   .ai-panel p{font-size:13px;line-height:1.6;color:var(--ink-2)}
+
+  @media(max-width:900px){
+    .menu-item{grid-template-columns:1fr auto 44px;gap:16px}
+    .menu-item .idx{display:none}
+    .menu-cat-head{flex-direction:column;align-items:start;gap:16px}
+    .menu-cat-head h2{font-size:48px}
+    .addons-grid{grid-template-columns:1fr 1fr}
+    .addon:nth-child(2n){border-right:none}
+  }
 </style>
 </head>
 <body>
@@ -260,10 +324,11 @@
       <img src="assets/hydraglow-logo-light.png" alt="HydraGlow">
     </a>
     <ul>
+      <li><a href="#process">Our Process</a></li>
       <li class="has-dropdown">
         <a href="services.html">Services <span class="nav-chevron"></span></a>
         <div class="dropdown">
-          <a href="services.html#iv-therapy">IV Therapy</a>
+          <a href="#iv-therapy">IV Therapy</a>
           <a href="services.html#vitamin-injections">Vitamin Injections</a>
           <a href="services.html#weight-loss">Weight Loss</a>
           <div class="divider"></div>
@@ -279,9 +344,6 @@
           <a href="#">Business Events</a>
         </div>
       </li>
-      <li><a href="#">Areas</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Memberships <span class="nav-badge">Soon</span></a></li>
     </ul>
     <div class="right">
       <button class="btn btn-glow" onclick="openModal()">Book Now <span class="arrow"></span></button>
@@ -295,12 +357,13 @@
     <div class="hero-grid">
       <div class="hero-left">
         <div class="eyebrow" style="margin-bottom:28px;display:flex;align-items:center;gap:10px"><span class="sparkle" style="width:11px;height:11px"></span> Wellness Concierge &nbsp;·&nbsp; Nashville &amp; Surrounding Areas</div>
-        <h1>IV Therapy and Wellness<br><em>Directly to your door.</em></h1>
+        <h1>IV Therapy and Wellness<br><em>Directly to your door</em></h1>
         <p class="lede">IV therapy, GLP-1 weight loss, Vitamin Injections and Wellness Care, delivered to your home, hotel, or event. A licensed provider approves every treatment, and a registered nurse comes to you.</p>
         <div class="cta-row">
           <button class="btn btn-glow" onclick="openModal()">Book Now <span class="arrow"></span></button>
           <a class="btn btn-ghost" href="services.html">See Services</a>
         </div>
+        <div class="hero-tagline">Feel Better. Glow Brighter.</div>
       </div>
       <div class="hero-right">
         <div class="hero-image">
@@ -331,67 +394,12 @@
   </div>
 </div>
 
-<!-- PILLARS -->
-<section class="pillars">
-  <div class="container">
-    <div class="pillars-head">
-      <h2>A protocol for <em>every</em><br>kind of human.</h2>
-      <p class="right">Three pillars, infinite combinations. Every drip is custom-built around your bloodwork, your week, and the kind of glow you want by sunrise.</p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar">
-        <div class="n"><span>01 / Hydrate</span> <span class="sparkle"></span></div>
-        <h3>Cellular <em>thirst</em>, satisfied.</h3>
-        <p>Electrolyte-rich Lactated Ringer's, B-complex and magnesium. The reset for jet lag, deadline weeks and the morning after the wedding.</p>
-        <a class="more" href="services.html">Hydration Drips <span class="arrow"></span></a>
-      </div>
-      <div class="pillar">
-        <div class="n"><span>02 / Illuminate</span> <span class="sparkle"></span></div>
-        <h3>Skin that <em>catches</em> light.</h3>
-        <p>Glutathione, vitamin C and biotin push pigment back into balance and tell collagen to wake up. Photographed-without-warning skin.</p>
-        <a class="more" href="services.html">Beauty Drips <span class="arrow"></span></a>
-      </div>
-      <div class="pillar">
-        <div class="n"><span>03 / Glow</span> <span class="sparkle"></span></div>
-        <h3>Energy you can <em>feel</em>.</h3>
-        <p>NAD+, amino blends and methylated B12 for the people who refuse to coast. Mitochondrial firepower without the crash.</p>
-        <a class="more" href="services.html">Performance Drips <span class="arrow"></span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURE -->
-<section class="feature">
-  <div class="container">
-    <div class="frame">
-      <div class="copy">
-        <div class="eyebrow"><span class="sparkle"></span> The Concierge</div>
-        <h3>A wellness team<br>on <em>speed-dial</em>.</h3>
-        <p class="body-copy">Your concierge plans the labs, books the providers, stocks the supplements and shows up to your suite with a kit. Think private chef, but for your bloodwork.</p>
-        <ul>
-          <li><span class="n">01</span><span class="t">Quarterly bloodwork & deep biomarker review</span><span class="p">Included</span></li>
-          <li><span class="n">02</span><span class="t">On-demand house calls, 7 days a week</span><span class="p">From 90m</span></li>
-          <li><span class="n">03</span><span class="t">Custom supplement & peptide protocols</span><span class="p">Members</span></li>
-          <li><span class="n">04</span><span class="t">Travel kit · drips on the road</span><span class="p">+ Fee</span></li>
-          <li><span class="n">05</span><span class="t">Hormone, sleep & longevity programs</span><span class="p">Quarterly</span></li>
-        </ul>
-        <button class="btn btn-glow" onclick="openModal()">Meet the Concierge <span class="arrow"></span></button>
-      </div>
-      <div class="image-slot">
-        <span class="pill">▮ Editorial · house-call</span>
-        <p class="quote">"They show up before the headache does."<span class="by">— Member · Brickell · 2y</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- HOW IT WORKS -->
-<section class="how-it-works">
+<section class="how-it-works" id="process">
   <div class="container">
     <div class="intro">
       <div>
-        <div class="eyebrow" style="margin-bottom:20px"><span class="sparkle" style="width:11px;height:11px"></span> &nbsp; The Process</div>
+        <div class="eyebrow" style="margin-bottom:20px"><span class="sparkle" style="width:11px;height:11px"></span> &nbsp; Our Process</div>
         <h2>Simple. Safe.<br><em>At your door.</em></h2>
       </div>
       <p class="intro-note">Every session starts with a licensed provider evaluation and ends with a registered nurse at your location — no clinic, no wait, no compromise on care.</p>
@@ -424,78 +432,168 @@
     </div>
     <div class="availability-bar">
       <div class="dot"></div>
-      <p><strong>Currently available Friday – Sunday</strong> · Downtown Nashville &amp; surrounding areas. Weekday appointments coming soon.</p>
+      <p><strong>Currently available Saturday &amp; Sunday</strong> · Downtown Nashville &amp; surrounding areas. Weekday appointments coming soon.</p>
     </div>
   </div>
 </section>
 
-<!-- PROMISE -->
-<section class="promise">
+<!-- IV THERAPY -->
+<section id="iv-therapy">
+
+<!-- PRICING NOTE -->
+<div class="pricing-note">
   <div class="container">
-    <div class="eyebrow"><span class="sparkle" style="width:11px;height:11px"></span> &nbsp; The HydraGlow Promise</div>
-    <h2>Hospital-grade care.<br>Hotel-suite <em>service</em>.</h2>
-    <p>Every drip is hung by a registered nurse with critical-care credentials. Every protocol is signed by a board-certified MD. Every appointment is on time. Every time.</p>
-    <div class="scope">
-      <div><div class="k">01 · Clinical</div><div class="v">RN-administered, MD-signed protocols.</div></div>
-      <div><div class="k">02 · Sourcing</div><div class="v">503B compounded, batch-tested.</div></div>
-      <div><div class="k">03 · Time</div><div class="v">On your <em>schedule</em>, not ours.</div></div>
-      <div><div class="k">04 · Privacy</div><div class="v">Discreet by default. NDA on request.</div></div>
+    <div class="inner">
+      <span><span class="dot" style="background:var(--pink)"></span> Retail pricing shown · members save 20–30%</span>
+      <span><span class="dot" style="background:var(--muted)"></span> All drips include nurse, supplies & travel within zone</span>
+      <span><span class="dot" style="background:var(--orange)"></span> Add-ons priced separately below</span>
     </div>
   </div>
-</section>
+</div>
 
-<!-- MEMBERSHIP -->
-<section class="membership">
-  <div class="container">
-    <div class="membership-grid">
+<!-- MENU BODY -->
+<div class="menu-body">
+<div class="container">
+
+  <!-- ── DRIPS ── -->
+  <div class="menu-cat" style="padding-bottom:80px">
+    <div class="menu-cat-head">
       <div>
-        <div class="eyebrow" style="margin-bottom:32px"><span class="sparkle" style="width:11px;height:11px"></span> &nbsp; Membership</div>
-        <h2>Glow on a <em>retainer</em>.</h2>
-        <p class="lede">Members get priority booking, member rates on every drip, complimentary house calls within zone, and quarterly labs included. No contracts, cancel anytime.</p>
-        <div style="margin-top:42px"><button class="btn btn-ghost" onclick="openModal()">Compare All Tiers <span class="arrow"></span></button></div>
+        <div class="eyebrow" style="margin-bottom:16px"><span class="sparkle" style="width:10px;height:10px"></span> IV Therapy</div>
+        <h2>Choose your <em>drip.</em></h2>
       </div>
-      <div class="tiers">
-        <div class="tier">
-          <div class="tier-name">Aura</div>
-          <div class="tier-tag">Monthly · Entry</div>
-          <div class="tier-price"><span class="grad-text">$240</span><span class="sub">/mo</span></div>
-          <ul>
-            <li>One signature drip per month</li>
-            <li>Member rate on all add-ons</li>
-            <li>Priority same-day booking</li>
-            <li>10% off retail supplements</li>
-          </ul>
-          <button class="tier-cta" onclick="openModal('Aura Membership')">Start with Aura <span class="arrow"></span></button>
-        </div>
-        <div class="tier featured">
-          <div class="tier-name">Halo</div>
-          <div class="tier-tag">Most Popular · Concierge</div>
-          <div class="tier-price"><span class="grad-text">$680</span><span class="sub">/mo</span></div>
-          <ul>
-            <li>Three drips, any tier</li>
-            <li>Complimentary in-zone house calls</li>
-            <li>Quarterly bloodwork included</li>
-            <li>Travel kit · two trips / year</li>
-            <li>24/7 nurse line</li>
-          </ul>
-          <button class="tier-cta" onclick="openModal('Halo Membership')">Apply for Halo <span class="arrow"></span></button>
-        </div>
-      </div>
+      <div class="cat-desc">Six IV blends built around what you actually need — hydration, recovery, energy, and everything in between.</div>
     </div>
-  </div>
-</section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial">
-  <div class="container">
-    <div class="testimonial-row">
-      <div class="stars">
-        <span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span><span class="sparkle"></span>
+    <div class="menu-item">
+      <span class="idx">01</span>
+      <div class="info">
+        <div class="name">Basic <em>Batch</em></div>
+        <div class="desc">A simple, no-frills hydration drip designed to refresh, rehydrate and keep the good times glowing.</div>
+        <div class="tags-row"><span class="tag">Lactated Ringers</span></div>
       </div>
-      <blockquote>"I land at MIA at 11pm and the nurse is in my suite by midnight. I sleep, I drip, I shoot at 6am. It is the <em>only</em> way I travel now."</blockquote>
-      <div class="by"><span class="name">— Marlowe K.</span>Halo Member · Travels 200d/yr</div>
+      <div class="price-col"><div class="price"><em>$199</em></div><div class="member-price">Member <span>$159</span></div></div>
+      <button class="book-btn" onclick="openModal('Basic Batch — $199')" aria-label="Book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+    <div class="menu-item">
+      <span class="idx">02</span>
+      <div class="info">
+        <div class="name">The <em>Morning After</em></div>
+        <div class="desc">Hangover relief drip designed to replenish lost nutrients, relieve the nausea, headache and fatigue that come the morning after.</div>
+        <div class="tags-row"><span class="tag">Zofran</span><span class="tag">Toradol</span><span class="tag">B12</span></div>
+      </div>
+      <div class="price-col"><div class="price"><em>$249</em></div><div class="member-price">Member <span>$199</span></div></div>
+      <button class="book-btn" onclick="openModal('The Morning After — $249')" aria-label="Book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+    <div class="menu-item featured">
+      <span class="idx">03</span>
+      <div class="info">
+        <div class="name">Glow <em>Getter</em></div>
+        <div class="desc">Our signature Myer's cocktail package to support energy, recovery, and your glow from within.</div>
+        <div class="tags-row"><span class="tag">B Complex</span><span class="tag">B12</span><span class="tag">Magnesium</span><span class="tag">Vitamin C</span><span class="tag">Signature</span></div>
+      </div>
+      <div class="price-col"><div class="price"><em>$299</em></div><div class="member-price">Member <span>$239</span></div></div>
+      <button class="book-btn" onclick="openModal('Glow Getter — $299')" aria-label="Book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+    <div class="menu-item">
+      <span class="idx">04</span>
+      <div class="info">
+        <div class="name">Game <em>Over</em></div>
+        <div class="desc">A powerful athletic recovery blend designed to help ease sore muscles and joints, support recovery and get you back in the game.</div>
+        <div class="tags-row"><span class="tag">Magnesium</span><span class="tag">Glutathione</span><span class="tag">Toradol</span></div>
+      </div>
+      <div class="price-col"><div class="price"><em>$299</em></div><div class="member-price">Member <span>$239</span></div></div>
+      <button class="book-btn" onclick="openModal('Game Over — $299')" aria-label="Book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+    <div class="menu-item">
+      <span class="idx">05</span>
+      <div class="info">
+        <div class="name">Sick &amp; <em>Tired</em></div>
+        <div class="desc">A refreshing blend designed to support immune health, energy, and overall wellness when you're feeling run down.</div>
+        <div class="tags-row"><span class="tag">B Complex</span><span class="tag">B12</span><span class="tag">Vitamin C</span><span class="tag">Zinc</span></div>
+      </div>
+      <div class="price-col"><div class="price"><em>$349</em></div><div class="member-price">Member <span>$279</span></div></div>
+      <button class="book-btn" onclick="openModal('Sick &amp; Tired — $349')" aria-label="Book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+
+    <div class="menu-item">
+      <span class="idx">06</span>
+      <div class="info">
+        <div class="name">Gut <em>Feeling</em></div>
+        <div class="desc">Our stomach bug blend designed to relieve cramping, nausea and fatigue and get you feeling back to yourself again.</div>
+        <div class="tags-row"><span class="tag">B Complex</span><span class="tag">Zofran</span><span class="tag">Magnesium</span></div>
+      </div>
+      <div class="price-col"><div class="price"><em>$249</em></div><div class="member-price">Member <span>$199</span></div></div>
+      <button class="book-btn" onclick="openModal('Gut Feeling — $249')" aria-label="Book">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
     </div>
   </div>
+
+</div><!-- /container -->
+</div><!-- /menu-body -->
+
+<!-- ADD-ONS -->
+<div class="addons">
+  <div class="container">
+    <div class="addons-head">
+      <h2>Build your <em>drip.</em></h2>
+      <div class="desc">Every add-on is mixed into your drip bag or delivered as a separate push at the end. Ask the nurse what works best for your goal.</div>
+    </div>
+    <div class="addons-grid">
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $39</span></div>
+        <h4><em>Zofran</em></h4>
+        <p>Anti-nausea push. Relief when queasy is the whole problem.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $39</span></div>
+        <h4><em>Toradol</em></h4>
+        <p>Non-narcotic pain relief for headaches, cramps, and soreness.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $39</span></div>
+        <h4><em>B12</em></h4>
+        <p>Methylcobalamin boost for sustained energy and mental clarity.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $49</span></div>
+        <h4><em>Magnesium</em></h4>
+        <p>Muscle relaxation, headache relief, and better sleep.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $49</span></div>
+        <h4><em>Zinc</em></h4>
+        <p>Immune support when you need it most.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $59</span></div>
+        <h4>Vitamin <em>C</em></h4>
+        <p>High-dose antioxidant and immune support.</p>
+      </div>
+      <div class="addon">
+        <div class="top"><span class="sparkle"></span><span class="price">+ $59</span></div>
+        <h4><em>Glutathione</em></h4>
+        <p>The master antioxidant. Detox and skin brightening in a single push.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
 
 <!-- FOOTER -->
@@ -567,20 +665,12 @@
       <input type="email" name="email" placeholder="Email address" required>
       <select name="service" id="modal-service-select">
         <option value="" disabled selected>Interested in…</option>
-        <option>The Glow Drip™ — $385</option>
-        <option>The Reset — $185</option>
-        <option>The Aftermath — $245</option>
-        <option>The Long Haul — $265</option>
-        <option>The Lit — $245</option>
-        <option>The Wedding Week — $1,250</option>
-        <option>The Ignite — $195</option>
-        <option>NAD+ 250mg — $425</option>
-        <option>NAD+ 500mg Reset — $695</option>
-        <option>The Baseline — $1,850</option>
-        <option>The Reset 90 — $5,200</option>
-        <option>The Longevity Year — $24,000</option>
-        <option>Aura Membership — $240/mo</option>
-        <option>Halo Membership — $680/mo</option>
+        <option>Basic Batch — $199</option>
+        <option>The Morning After — $249</option>
+        <option>Glow Getter — $299</option>
+        <option>Game Over — $299</option>
+        <option>Sick &amp; Tired — $349</option>
+        <option>Gut Feeling — $249</option>
         <option>Not sure — help me choose</option>
       </select>
       <textarea name="message" placeholder="Anything else? (preferred date, location, questions…)"></textarea>
@@ -605,14 +695,7 @@
 
 <script>
   function openModal(service) {
-    document.getElementById('modal-overlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (service) {
-      const sel = document.getElementById('modal-service-select');
-      for (let i = 0; i < sel.options.length; i++) {
-        if (sel.options[i].text.startsWith(service)) { sel.selectedIndex = i; break; }
-      }
-    }
+    window.open('https://www.vagaro.com/hydraglownash/services', '_blank', 'noopener');
   }
   function closeModal() {
     document.getElementById('modal-overlay').classList.remove('open');
