@@ -185,17 +185,6 @@
   .modal-success{display:none;text-align:center;padding:24px 0}
   .modal-success p{font-size:15px;color:var(--ink-2);line-height:1.6}
 
-  /* ── AI CHAT BUTTON ── */
-  .ai-chat-btn{position:fixed;bottom:32px;right:32px;z-index:100;width:56px;height:56px;border-radius:50%;background:var(--glow-grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(255,45,146,.4);transition:transform .25s,box-shadow .25s}
-  .ai-chat-btn:hover{transform:scale(1.08);box-shadow:0 8px 36px rgba(255,45,146,.55)}
-  .ai-chat-btn .sparkle{width:22px;height:22px}
-  .ai-panel{position:fixed;bottom:100px;right:32px;z-index:100;width:320px;background:#ffffff;border:1px solid var(--line-2);border-radius:16px;padding:32px;display:none;box-shadow:0 12px 48px rgba(0,0,0,.12)}
-  .ai-panel.open{display:block}
-  .ai-panel .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-  .ai-panel h4{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:-.01em;margin-bottom:10px}
-  .ai-panel h4 em{font-style:italic;color:var(--pink)}
-  .ai-panel p{font-size:13px;line-height:1.6;color:var(--ink-2)}
-
   /* filter hidden state */
   .cat.hidden{display:none}
 
@@ -258,8 +247,6 @@
 
     .modal{padding:32px 24px}
     .modal h2{font-size:34px}
-    .ai-panel{width:calc(100vw - 48px);right:24px;bottom:90px}
-    .ai-chat-btn{bottom:24px;right:24px}
   }
 
   @media(max-width:480px){
@@ -571,15 +558,6 @@
   </div>
 </div>
 
-<!-- AI CHAT BUTTON (future hook) -->
-<button class="ai-chat-btn" id="ai-chat-btn" onclick="toggleAiPanel()" aria-label="Ask HydraGlow">
-  <span class="sparkle"></span>
-</button>
-<div class="ai-panel" id="ai-panel">
-  <div class="eyebrow">Ask HydraGlow</div>
-  <h4>Your personal <em>wellness</em> concierge.</h4>
-  <p>AI-powered guidance coming soon — service recommendations, protocol questions, and booking help, all in one place.</p>
-</div>
 
 <script>
   // Modal
@@ -597,9 +575,6 @@
     e.preventDefault();
     document.getElementById('modal-form').style.display = 'none';
     document.getElementById('modal-success').style.display = 'block';
-  }
-  function toggleAiPanel() {
-    document.getElementById('ai-panel').classList.toggle('open');
   }
   function toggleMobileNav() {
     document.getElementById('nav-toggle').classList.toggle('open');
