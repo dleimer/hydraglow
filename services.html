@@ -47,6 +47,16 @@
   nav.top .right{display:flex;align-items:center;gap:18px}
   nav.top .phone{font-family:var(--mono);font-size:12px;color:var(--muted)}
 
+  .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:0}
+  .nav-toggle span{display:block;width:100%;height:1.5px;background:var(--ink);transition:transform .25s,opacity .25s}
+  .nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .mobile-nav{display:none;flex-direction:column;padding:8px 24px 28px}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:14px 0;font-size:17px;font-family:var(--serif);border-top:1px solid var(--line);color:var(--ink)}
+  .mobile-nav a:first-child{border-top:none}
+
   .page-head{padding:80px 0 80px;position:relative;overflow:hidden}
   .page-head::before{content:"";position:absolute;width:1000px;height:600px;left:50%;top:-160px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,45,146,.18),transparent 60%);pointer-events:none}
   .page-head .container{position:relative;z-index:1}
@@ -188,6 +198,76 @@
 
   /* filter hidden state */
   .cat.hidden{display:none}
+
+  @media(max-width:900px){
+    .container{padding:0 20px}
+
+    nav.top .row{height:64px}
+    nav.top .logo img{height:42px}
+    nav.top ul{display:none}
+    nav.top .phone{display:none}
+    .nav-toggle{display:flex}
+
+    .page-head{padding:48px 0 40px}
+    .page-head::before{width:600px;height:400px;top:-100px}
+    .crumb{margin-bottom:24px}
+    .page-head h1{font-size:52px}
+    .page-head .lede{font-size:16px;margin-top:24px}
+
+    .cat{padding:56px 0 30px}
+    .cat .cat-head{flex-direction:column;align-items:start;gap:16px;margin-bottom:32px}
+    .cat .cat-head h2{font-size:44px}
+
+    .feature-card{grid-template-columns:1fr;margin:32px 0 8px}
+    .feature-card .copy{padding:36px 24px}
+    .feature-card h3{font-size:44px}
+    .feature-card .specs{flex-wrap:wrap;gap:20px 32px}
+    .feature-card .image{min-height:320px}
+    .feature-card .image .label{font-size:32px}
+
+    .row-item{grid-template-columns:1fr 44px;gap:8px 16px;padding:24px 4px}
+    .row-item .n{display:none}
+    .row-item .info{grid-column:1;order:1}
+    .row-item .desc{grid-column:1;order:2}
+    .row-item .price{grid-column:1;order:3;text-align:left;margin-top:4px}
+    .row-item .book{grid-column:2;grid-row:1;order:4;align-self:start}
+    .row-item .name{font-size:30px}
+
+    .addons{padding:56px 0}
+    .addons-head{flex-direction:column;align-items:start;gap:16px;margin-bottom:32px}
+    .addons-head h2{font-size:44px}
+    .addons-grid{grid-template-columns:1fr 1fr}
+    .addon:nth-child(2n){border-right:none}
+    .addon{padding:24px 20px 28px}
+    .addon .top{margin-bottom:28px}
+
+    .process{padding:64px 0}
+    .process h2{font-size:40px;margin-bottom:40px}
+    .steps{grid-template-columns:1fr 1fr}
+    .step{padding:24px 16px 32px;border-right:1px solid var(--line)}
+    .step:nth-child(2n){border-right:none}
+    .step:nth-child(3),.step:nth-child(4){border-top:1px solid var(--line)}
+    .step .n{font-size:56px;margin-bottom:16px}
+
+    .cta-band{padding:80px 0}
+    .cta-band h2{font-size:52px}
+    .cta-band .row{flex-wrap:wrap}
+
+    footer .row{flex-direction:column;align-items:start;gap:16px}
+    footer .row a{margin-left:0;margin-right:24px}
+
+    .modal{padding:32px 24px}
+    .modal h2{font-size:34px}
+    .ai-panel{width:calc(100vw - 48px);right:24px;bottom:90px}
+    .ai-chat-btn{bottom:24px;right:24px}
+  }
+
+  @media(max-width:480px){
+    .page-head h1{font-size:42px}
+    .steps{grid-template-columns:1fr}
+    .step{border-right:none!important;border-top:1px solid var(--line)!important}
+    .feature-card .specs{flex-direction:column;gap:16px}
+  }
 </style>
 </head>
 <body>
@@ -206,7 +286,18 @@
     <div class="right">
       <span class="phone">+1 (305) 555 · 0142</span>
       <button class="btn btn-glow" onclick="openModal()">Book a Drip <span class="arrow"></span></button>
+      <button class="nav-toggle" id="nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="services.html" onclick="closeMobileNav()">Treatments</a>
+    <a href="index.html#iv-therapy">IV Therapy</a>
+    <a href="#" onclick="closeMobileNav()">Membership</a>
+    <a href="#" onclick="closeMobileNav()">Concierge</a>
+    <a href="#" onclick="closeMobileNav()">Approach</a>
+    <a href="#" onclick="closeMobileNav()">Journal</a>
   </div>
 </nav>
 
@@ -254,7 +345,7 @@
   <div class="row-list">
     <div class="row-item">
       <span class="n">01</span>
-      <div>
+      <div class="info">
         <div class="name">Basic <em>Batch</em></div>
         <div class="tags" style="margin-top:14px">
           <span class="tag">Lactated Ringers</span>
@@ -266,7 +357,7 @@
     </div>
     <div class="row-item">
       <span class="n">02</span>
-      <div>
+      <div class="info">
         <div class="name">The <em>Morning After</em></div>
         <div class="tags" style="margin-top:14px">
           <span class="tag">Zofran</span>
@@ -280,7 +371,7 @@
     </div>
     <div class="row-item">
       <span class="n">03</span>
-      <div>
+      <div class="info">
         <div class="name">Glow <em>Getter</em></div>
         <div class="tags" style="margin-top:14px">
           <span class="tag">B Complex</span>
@@ -295,7 +386,7 @@
     </div>
     <div class="row-item">
       <span class="n">04</span>
-      <div>
+      <div class="info">
         <div class="name">Game <em>Over</em></div>
         <div class="tags" style="margin-top:14px">
           <span class="tag">Magnesium</span>
@@ -309,7 +400,7 @@
     </div>
     <div class="row-item">
       <span class="n">05</span>
-      <div>
+      <div class="info">
         <div class="name">Sick &amp; <em>Tired</em></div>
         <div class="tags" style="margin-top:14px">
           <span class="tag">B Complex</span>
@@ -324,7 +415,7 @@
     </div>
     <div class="row-item">
       <span class="n">06</span>
-      <div>
+      <div class="info">
         <div class="name">Gut <em>Feeling</em></div>
         <div class="tags" style="margin-top:14px">
           <span class="tag">B Complex</span>
@@ -509,6 +600,14 @@
   }
   function toggleAiPanel() {
     document.getElementById('ai-panel').classList.toggle('open');
+  }
+  function toggleMobileNav() {
+    document.getElementById('nav-toggle').classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.getElementById('nav-toggle').classList.remove('open');
+    document.getElementById('mobile-nav').classList.remove('open');
   }
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
