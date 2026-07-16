@@ -330,19 +330,29 @@
     .how-it-works h2{font-size:44px}
     .how-it-works .intro-note{max-width:none}
     .steps{grid-template-columns:1fr 1fr;border-top:none}
-    .step{border-right:none;border-top:1px solid var(--line);padding:32px 0}
+    .step{border-right:none;border-top:1px solid var(--line);padding:32px 0;cursor:pointer}
     .step:nth-child(odd){padding-right:20px}
     .step:nth-child(even){padding-left:20px}
     .step-num{margin-bottom:28px}
     .step h3{font-size:30px}
+    .step h3::after{content:"";display:inline-block;width:7px;height:7px;margin-left:10px;margin-bottom:3px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .25s}
+    .step.expanded h3::after{transform:rotate(225deg)}
+    .step p,.step .step-note{max-height:0;opacity:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease,margin-top .3s ease}
+    .step.expanded p{max-height:200px;opacity:1;margin-top:16px}
+    .step.expanded .step-note{max-height:40px;opacity:1;margin-top:20px}
     .availability-bar{flex-direction:column;align-items:start;gap:10px;margin-top:40px}
 
     .menu-cat{padding:56px 0 0}
-    .menu-item{grid-template-columns:1fr auto 44px;gap:16px;padding:22px 0}
+    .menu-item{grid-template-columns:1fr auto 44px;gap:16px;padding:22px 0;cursor:pointer}
     .menu-item .idx{display:none}
     .menu-item .name{font-size:28px}
+    .menu-item .name::after{content:"";display:inline-block;width:7px;height:7px;margin-left:10px;margin-bottom:2px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .25s}
+    .menu-item.expanded .name::after{transform:rotate(225deg)}
     .menu-item.featured .name{font-size:32px}
     .menu-item .price{font-size:26px}
+    .menu-item .desc,.menu-item .tags-row{max-height:0;opacity:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease,margin-top .3s ease}
+    .menu-item.expanded .desc{max-height:150px;opacity:1}
+    .menu-item.expanded .tags-row{max-height:60px;opacity:1;margin-top:8px}
     .menu-cat-head{flex-direction:column;align-items:start;gap:16px}
     .menu-cat-head h2{font-size:44px}
     .addons{padding:56px 0}
@@ -350,8 +360,12 @@
     .addons-head h2{font-size:44px}
     .addons-grid{grid-template-columns:1fr 1fr}
     .addon:nth-child(2n){border-right:none}
-    .addon{padding:24px 20px 28px}
+    .addon{padding:24px 20px 28px;position:relative;cursor:pointer}
     .addon .top{margin-bottom:28px}
+    .addon h4::after{content:"";display:inline-block;width:7px;height:7px;margin-left:10px;margin-bottom:2px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .25s}
+    .addon.expanded h4::after{transform:rotate(225deg)}
+    .addon p{max-height:0;opacity:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease,margin-top .3s ease}
+    .addon.expanded p{max-height:120px;opacity:1;margin-top:10px}
 
     .footer-grid{grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
     footer{padding:56px 0 28px}
@@ -384,7 +398,7 @@
         <a>Services <span class="nav-chevron"></span></a>
         <div class="dropdown">
           <a href="#iv-therapy">IV Therapy</a>
-          <a href="services.html#vitamin-injections">Vitamin Injections</a>
+          <a href="#vitamin-injections">Vitamin Injections</a>
           <a href="services.html#weight-loss">Weight Loss</a>
         </div>
       </li>
@@ -408,6 +422,7 @@
   <div class="mobile-nav" id="mobile-nav">
     <a href="#process" onclick="closeMobileNav()">Our Process</a>
     <a href="#iv-therapy" onclick="closeMobileNav()">IV Therapy</a>
+    <a href="#vitamin-injections" onclick="closeMobileNav()">Vitamin Injections</a>
     <a href="#" onclick="closeMobileNav()">Events</a>
   </div>
 </nav>
@@ -655,6 +670,30 @@
 
 </section>
 
+<!-- VITAMIN INJECTIONS -->
+<section id="vitamin-injections">
+  <div class="addons" style="background:var(--bg)">
+    <div class="container">
+      <div class="addons-head">
+        <h2>Vitamin <em>injections.</em></h2>
+        <div class="desc">Quick shots, no drip required. Cheaper when added onto a drip appointment.</div>
+      </div>
+      <div class="addons-grid" style="grid-template-columns:repeat(2,1fr);max-width:700px">
+        <div class="addon">
+          <div class="top"><span class="sparkle"></span><span class="price">$29 / $49</span></div>
+          <h4><em>B12</em> Injection</h4>
+          <p>$29 when added to a drip appointment. $49 for a standalone injection appointment.</p>
+        </div>
+        <div class="addon" style="border-right:none">
+          <div class="top"><span class="sparkle"></span><span class="price">$39 / $59</span></div>
+          <h4><em>D3</em> Injection</h4>
+          <p>$39 when added to a drip appointment. $59 for a standalone injection appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-glow"></div>
@@ -766,6 +805,13 @@
     document.getElementById('nav-toggle').classList.remove('open');
     document.getElementById('mobile-nav').classList.remove('open');
   }
+  document.addEventListener('click', function(e) {
+    if (window.innerWidth > 900) return;
+    var item = e.target.closest('.menu-item, .addon, .step');
+    if (!item) return;
+    if (e.target.closest('a, button')) return;
+    item.classList.toggle('expanded');
+  });
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
   });
