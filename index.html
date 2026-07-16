@@ -281,6 +281,21 @@
   .dose-row .price .sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
   .dose-row .price .total{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:right;margin-top:2px}
 
+  /* ── EVENTS ── */
+  .events-section{padding:120px 0;background:var(--bg-2)}
+  .events-head{max-width:640px;margin-bottom:64px}
+  .events-head h2{font-family:var(--serif);font-size:72px;font-weight:400;line-height:1;letter-spacing:-.02em;margin-bottom:20px}
+  .events-head h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .events-head .desc{font-size:15px;line-height:1.7;color:var(--ink-2)}
+  .events-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .event-card{background:var(--bg);padding:48px 44px}
+  .event-card .eyebrow{margin-bottom:20px}
+  .event-card h3{font-family:var(--serif);font-size:34px;font-weight:400;font-style:italic;letter-spacing:-.015em;line-height:1.15;margin-bottom:18px;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .event-card p{font-size:14.5px;line-height:1.75;color:var(--ink-2)}
+  .events-cta{margin-top:56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-top:40px;border-top:1px solid var(--line)}
+  .events-cta p{font-size:14px;color:var(--ink-2);max-width:460px}
+  .events-cta p strong{color:var(--ink)}
+
   /* ── BOOKING MODAL ── */
   .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
   .modal-overlay.open{opacity:1;pointer-events:all}
@@ -381,6 +396,14 @@
     .dose-row{flex-wrap:wrap}
     .dose-row .price{text-align:right}
 
+    .events-section{padding:56px 0}
+    .events-head{margin-bottom:36px}
+    .events-head h2{font-size:44px}
+    .events-grid{grid-template-columns:1fr}
+    .event-card{padding:36px 24px}
+    .event-card h3{font-size:28px}
+    .events-cta{flex-direction:column;align-items:start;gap:20px;margin-top:36px;padding-top:32px}
+
     .footer-grid{grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
     footer{padding:56px 0 28px}
     .footer-bottom{flex-direction:column;align-items:start;gap:16px}
@@ -416,15 +439,7 @@
           <a href="#weight-loss">Weight Loss</a>
         </div>
       </li>
-      <li class="has-dropdown">
-        <a href="#">Events <span class="nav-chevron"></span></a>
-        <div class="dropdown">
-          <a href="#">Weddings</a>
-          <a href="#">Bachelorette &amp; Bachelor</a>
-          <a href="#">Sporting Events</a>
-          <a href="#">Business Events</a>
-        </div>
-      </li>
+      <li><a href="#events">Events</a></li>
     </ul>
     <div class="right">
       <button class="btn btn-glow" onclick="openModal()">Book Now <span class="arrow"></span></button>
@@ -438,7 +453,7 @@
     <a href="#iv-therapy" onclick="closeMobileNav()">IV Therapy</a>
     <a href="#vitamin-injections" onclick="closeMobileNav()">Vitamin Injections</a>
     <a href="#weight-loss" onclick="closeMobileNav()">Weight Loss</a>
-    <a href="#" onclick="closeMobileNav()">Events</a>
+    <a href="#events" onclick="closeMobileNav()">Events</a>
   </div>
 </nav>
 
@@ -763,6 +778,43 @@
   </div>
 </section>
 
+<!-- EVENTS -->
+<section id="events" class="events-section">
+  <div class="container">
+    <div class="events-head">
+      <div class="eyebrow" style="margin-bottom:16px"><span class="sparkle" style="width:10px;height:10px"></span> Events</div>
+      <h2>Bring HydraGlow <em>to you.</em></h2>
+      <p class="desc">Weddings, weekend trips, game day, the office offsite: we show up wherever the group is and keep everyone hydrated, recovered, and running on more than caffeine and adrenaline.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="eyebrow">For Bridal Parties</div>
+        <h3>Bridal Glow, Delivered.</h3>
+        <p>The week before a wedding is chaos: dress fittings, seating charts, family drama, and approximately zero sleep. We show up for the bachelorette recovery, the morning of the wedding when nerves and champagne have taken their toll, or the whole bridal party the night before so everyone walks down the aisle glowing instead of running on coffee and adrenaline. Book a single session for the bride, or turn it into an experience with the whole crew: robes on, mimosas out, IV in, getting ready together before the "I do's." We come to the hotel, the Airbnb, wherever the wedding week chaos is happening.</p>
+      </div>
+      <div class="event-card">
+        <div class="eyebrow">For Bachelor &amp; Bachelorette Weekends</div>
+        <h3>The Recovery Squad Your Group Chat Needs.</h3>
+        <p>You didn't plan a whole weekend away just to spend Sunday morning stuck in a hotel bed. Whether it's a full weekend of bar crawls, a boat day, or a house rented specifically for chaos, we show up wherever the party is and get the whole group back on their feet: hydration, nausea relief, the works. Nobody has to be the one "I feel fine" person dragging everyone else through brunch. Book it for the morning after, or have us on standby for whenever the group inevitably needs it.</p>
+      </div>
+      <div class="event-card">
+        <div class="eyebrow">For Sporting Events</div>
+        <h3>Game Day, Handled.</h3>
+        <p>Tailgates, marathons, golf outings, fantasy draft parties, the company suite at the game: anywhere there's a crowd and a long day ahead, we'll set up shop. Pregame energy for the people running (or drinking) their way through six hours of tailgating, recovery drips for the marathoners who need to be functional the next morning, or just a steady stream of hydration keeping your group going from first pitch to last call. We bring the setup to the parking lot, the box, or the backyard. You bring the team spirit.</p>
+      </div>
+      <div class="event-card">
+        <div class="eyebrow">For Corporate &amp; Business Events</div>
+        <h3>Wellness as a Perk, Not an Afterthought.</h3>
+        <p>Company offsites and conferences run people into the ground: early mornings, late dinners, too much coffee, not enough water. Bring HydraGlow in as an actual perk instead of another line item nobody uses: a wellness station at your next retreat, a recovery session after the big client dinner, or a standing option your team can book on their own. It's the kind of benefit people remember, and it beats another gift card nobody asked for.</p>
+      </div>
+    </div>
+    <div class="events-cta">
+      <p><strong>No set pricing yet.</strong> Every event is priced individually based on group size and what you need. Tell us what you're planning and we'll build a package around it.</p>
+      <button class="btn btn-glow" onclick="openModal()">Let's Talk <span class="arrow"></span></button>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-glow"></div>
@@ -785,7 +837,7 @@
         <ul>
           <li><a href="#">House Calls</a></li>
           <li><a href="#">Bloodwork & Labs</a></li>
-          <li><a href="#">Corporate & Events</a></li>
+          <li><a href="#events">Corporate & Events</a></li>
           <li><a href="#">Travel Program</a></li>
         </ul>
       </div>
