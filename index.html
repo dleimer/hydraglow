@@ -280,6 +280,28 @@
   .addon h4 em{font-style:italic;color:var(--pink)}
   .addon p{font-size:13px;line-height:1.55;color:var(--ink-2)}
 
+  /* ── WEIGHT LOSS (GLP-1) ── */
+  .glp-head{padding:100px 0 0;background:var(--bg)}
+  .glp-head h2{font-family:var(--serif);font-size:72px;font-weight:400;line-height:1;letter-spacing:-.02em;margin-bottom:20px}
+  .glp-head h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .glp-head .desc{max-width:640px;font-size:15px;line-height:1.7;color:var(--ink-2);margin-bottom:36px}
+  .glp-inclusions{display:flex;flex-wrap:wrap;gap:12px 28px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:64px}
+  .glp-inclusions span{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+  .glp-inclusions .dot{width:5px;height:5px;border-radius:50%;background:var(--glow-grad);flex:0 0 auto}
+  .glp-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);padding-bottom:100px}
+  .med-card{padding:56px 48px}
+  .med-card:first-child{border-right:1px solid var(--line)}
+  .med-card h3{font-family:var(--serif);font-style:italic;font-size:40px;font-weight:500;letter-spacing:-.015em;margin-bottom:36px;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .dose-group{margin-bottom:36px}
+  .dose-group:last-child{margin-bottom:0}
+  .dose-group-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .dose-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+  .dose-row:first-of-type{border-top:none}
+  .dose-row .dose{font-size:14px;color:var(--ink-2)}
+  .dose-row .price{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);white-space:nowrap}
+  .dose-row .price .sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em}
+  .dose-row .price .total{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:right;margin-top:2px}
+
   /* ── BOOKING MODAL ── */
   .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
   .modal-overlay.open{opacity:1;pointer-events:all}
@@ -370,6 +392,16 @@
     .addon p{max-height:0;opacity:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease,margin-top .3s ease}
     .addon.expanded p{max-height:120px;opacity:1;margin-top:10px}
 
+    .glp-head{padding:56px 0 0}
+    .glp-head h2{font-size:44px}
+    .glp-head .desc{margin-bottom:28px}
+    .glp-inclusions{flex-direction:column;gap:12px;margin-bottom:48px}
+    .glp-grid{grid-template-columns:1fr;padding-bottom:56px}
+    .med-card{padding:40px 0}
+    .med-card:first-child{border-right:none;border-bottom:1px solid var(--line)}
+    .dose-row{flex-wrap:wrap}
+    .dose-row .price{text-align:right}
+
     .footer-grid{grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px}
     footer{padding:56px 0 28px}
     .footer-bottom{flex-direction:column;align-items:start;gap:16px}
@@ -402,7 +434,7 @@
         <div class="dropdown">
           <a href="#iv-therapy">IV Therapy</a>
           <a href="#vitamin-injections">Vitamin Injections</a>
-          <a href="services.html#weight-loss">Weight Loss</a>
+          <a href="#weight-loss">Weight Loss</a>
         </div>
       </li>
       <li class="has-dropdown">
@@ -426,6 +458,7 @@
     <a href="#process" onclick="closeMobileNav()">Our Process</a>
     <a href="#iv-therapy" onclick="closeMobileNav()">IV Therapy</a>
     <a href="#vitamin-injections" onclick="closeMobileNav()">Vitamin Injections</a>
+    <a href="#weight-loss" onclick="closeMobileNav()">Weight Loss</a>
     <a href="#" onclick="closeMobileNav()">Events</a>
   </div>
 </nav>
@@ -691,6 +724,60 @@
           <div class="top"><span class="sparkle"></span><span class="price">$39 / $59</span></div>
           <h4><em>D3</em> Injection</h4>
           <p>$39 when added to a drip appointment. $59 for a standalone injection appointment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEIGHT LOSS -->
+<section id="weight-loss">
+  <div class="glp-head">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom:16px"><span class="sparkle" style="width:10px;height:10px"></span> Weight Loss</div>
+      <h2>GLP-1 <em>Programs.</em></h2>
+      <p class="desc">Semaglutide and Tirzepatide, prescribed and managed by a licensed provider. Choose monthly or save with a 3-month package as your dose increases.</p>
+      <div class="glp-inclusions">
+        <span><span class="dot"></span>Provider consult</span>
+        <span><span class="dot"></span>Personalized treatment plan &amp; prescription</span>
+        <span><span class="dot"></span>Injection technique &amp; education</span>
+        <span><span class="dot"></span>Medications shipped to your door</span>
+        <span><span class="dot"></span>Free follow-ups with your HydraGlow nurse</span>
+        <span><span class="dot"></span>Easy refill process</span>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="glp-grid">
+      <div class="med-card">
+        <h3>Semaglutide</h3>
+        <div class="dose-group">
+          <div class="dose-group-label">Monthly</div>
+          <div class="dose-row"><span class="dose">0.25mg – 0.5mg</span><span class="price">$199</span></div>
+          <div class="dose-row"><span class="dose">1mg</span><span class="price">$249</span></div>
+          <div class="dose-row"><span class="dose">1.5mg</span><span class="price">$275</span></div>
+          <div class="dose-row"><span class="dose">2.5mg</span><span class="price">$325</span></div>
+        </div>
+        <div class="dose-group">
+          <div class="dose-group-label">3-Month Package</div>
+          <div class="dose-row"><span class="dose">Doses 1–3 (0.25mg – 1mg)</span><span class="price">$199<span class="sub">/mo</span><span class="total">$597 total</span></span></div>
+          <div class="dose-row"><span class="dose">Doses 4–5 (1.5mg – 2.5mg)</span><span class="price">$275<span class="sub">/mo</span><span class="total">$825 total</span></span></div>
+          <div class="dose-row"><span class="dose">Maintenance (2.5mg)</span><span class="price">$325<span class="sub">/mo</span><span class="total">$925 total</span></span></div>
+        </div>
+      </div>
+      <div class="med-card">
+        <h3>Tirzepatide</h3>
+        <div class="dose-group">
+          <div class="dose-group-label">Monthly</div>
+          <div class="dose-row"><span class="dose">2.5mg – 5mg</span><span class="price">$299</span></div>
+          <div class="dose-row"><span class="dose">7.5mg – 10mg</span><span class="price">$399</span></div>
+          <div class="dose-row"><span class="dose">12.5mg – 15mg</span><span class="price">$499</span></div>
+        </div>
+        <div class="dose-group">
+          <div class="dose-group-label">3-Month Package</div>
+          <div class="dose-row"><span class="dose">Doses 1–3 (2.5mg – 7.5mg)</span><span class="price">$299<span class="sub">/mo</span><span class="total">$897 total</span></span></div>
+          <div class="dose-row"><span class="dose">Doses 4–6 (10mg – 15mg)</span><span class="price">$399<span class="sub">/mo</span><span class="total">$1,197 total</span></span></div>
+          <div class="dose-row"><span class="dose">Maintenance (15mg)</span><span class="price">$499<span class="sub">/mo</span><span class="total">$1,497 total</span></span></div>
         </div>
       </div>
     </div>
