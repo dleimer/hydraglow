@@ -164,25 +164,6 @@
   .promise .scope .v{font-family:var(--serif);font-size:32px;line-height:1.1;color:var(--ink);font-weight:400;letter-spacing:-.015em}
   .promise .scope .v em{font-style:italic;color:var(--pink)}
 
-  .membership{padding:140px 0;background:var(--bg)}
-  .membership-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
-  .membership h2{font-family:var(--serif);font-size:88px;font-weight:400;line-height:.95;letter-spacing:-.025em}
-  .membership h2 em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .membership .lede{margin-top:32px;font-size:16px;line-height:1.65;color:var(--ink-2);max-width:380px}
-  .tiers{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .tier{padding:36px 30px;border:1px solid var(--line);border-radius:8px;background:var(--bg-2);position:relative;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
-  .tier:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 8px 32px rgba(0,0,0,.08)}
-  .tier.featured{background:linear-gradient(180deg,rgba(255,45,146,.07),rgba(255,106,26,.04) 60%,var(--bg-2));border-color:rgba(255,45,146,.35)}
-  .tier .tier-name{font-family:var(--serif);font-style:italic;font-size:32px;letter-spacing:-.01em;margin-bottom:6px}
-  .tier .tier-tag{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-  .tier .tier-price{margin-top:36px;font-family:var(--serif);font-size:60px;line-height:1;letter-spacing:-.02em;font-weight:500}
-  .tier .tier-price .grad-text{background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .tier .tier-price .sub{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.16em;margin-left:6px}
-  .tier ul{list-style:none;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
-  .tier ul li{padding:11px 0;font-size:13.5px;color:var(--ink-2);display:flex;gap:12px;align-items:start}
-  .tier ul li::before{content:"";flex:0 0 auto;width:5px;height:5px;border-radius:50%;background:var(--glow-grad);margin-top:8px}
-  .tier .tier-cta{margin-top:30px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
-  .tier .tier-cta .arrow{margin-top:1px}
 
   .testimonial{padding:120px 0 140px}
   .testimonial-row{display:grid;grid-template-columns:160px 1fr 220px;gap:60px;align-items:center}
@@ -255,8 +236,6 @@
   .menu-item .price-col{text-align:right}
   .menu-item .price{font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.015em;white-space:nowrap}
   .menu-item .price em{font-style:italic;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .menu-item .member-price{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:4px}
-  .menu-item .member-price span{color:var(--ink-2)}
   .menu-item .book-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:transparent;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;flex:0 0 auto}
   .menu-item .book-btn:hover{background:var(--glow-grad);border-color:transparent}
   .menu-item .book-btn svg{width:14px;height:14px;pointer-events:none}
@@ -582,7 +561,7 @@
         <div class="desc">A simple, no-frills hydration drip designed to refresh, rehydrate and keep the good times glowing.</div>
         <div class="tags-row"><span class="tag">Lactated Ringers</span></div>
       </div>
-      <div class="price-col"><div class="price"><em>$199</em></div><div class="member-price">Member <span>$159</span></div></div>
+      <div class="price-col"><div class="price"><em>$199</em></div></div>
       <button class="book-btn" onclick="openModal('Basic Batch — $199')" aria-label="Book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -595,7 +574,7 @@
         <div class="desc">Hangover relief drip designed to replenish lost nutrients, relieve the nausea, headache and fatigue that come the morning after.</div>
         <div class="tags-row"><span class="tag">Zofran</span><span class="tag">Toradol</span><span class="tag">B12</span></div>
       </div>
-      <div class="price-col"><div class="price"><em>$249</em></div><div class="member-price">Member <span>$199</span></div></div>
+      <div class="price-col"><div class="price"><em>$249</em></div></div>
       <button class="book-btn" onclick="openModal('The Morning After — $249')" aria-label="Book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -608,7 +587,7 @@
         <div class="desc">Our signature Myer's cocktail package to support energy, recovery, and your glow from within.</div>
         <div class="tags-row"><span class="tag">B Complex</span><span class="tag">B12</span><span class="tag">Magnesium</span><span class="tag">Vitamin C</span><span class="tag">Signature</span></div>
       </div>
-      <div class="price-col"><div class="price"><em>$299</em></div><div class="member-price">Member <span>$239</span></div></div>
+      <div class="price-col"><div class="price"><em>$299</em></div></div>
       <button class="book-btn" onclick="openModal('Glow Getter — $299')" aria-label="Book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -621,7 +600,7 @@
         <div class="desc">A powerful athletic recovery blend designed to help ease sore muscles and joints, support recovery and get you back in the game.</div>
         <div class="tags-row"><span class="tag">Magnesium</span><span class="tag">Glutathione</span><span class="tag">Toradol</span></div>
       </div>
-      <div class="price-col"><div class="price"><em>$299</em></div><div class="member-price">Member <span>$239</span></div></div>
+      <div class="price-col"><div class="price"><em>$299</em></div></div>
       <button class="book-btn" onclick="openModal('Game Over — $299')" aria-label="Book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -634,7 +613,7 @@
         <div class="desc">A refreshing blend designed to support immune health, energy, and overall wellness when you're feeling run down.</div>
         <div class="tags-row"><span class="tag">B Complex</span><span class="tag">B12</span><span class="tag">Vitamin C</span><span class="tag">Zinc</span></div>
       </div>
-      <div class="price-col"><div class="price"><em>$349</em></div><div class="member-price">Member <span>$279</span></div></div>
+      <div class="price-col"><div class="price"><em>$349</em></div></div>
       <button class="book-btn" onclick="openModal('Sick &amp; Tired — $349')" aria-label="Book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -647,7 +626,7 @@
         <div class="desc">Our stomach bug blend designed to relieve cramping, nausea and fatigue and get you feeling back to yourself again.</div>
         <div class="tags-row"><span class="tag">B Complex</span><span class="tag">Zofran</span><span class="tag">Magnesium</span></div>
       </div>
-      <div class="price-col"><div class="price"><em>$249</em></div><div class="member-price">Member <span>$199</span></div></div>
+      <div class="price-col"><div class="price"><em>$249</em></div></div>
       <button class="book-btn" onclick="openModal('Gut Feeling — $249')" aria-label="Book">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </button>
@@ -796,18 +775,15 @@
       <div>
         <h4>Treatments</h4>
         <ul>
-          <li><a href="services.html">Hydration Drips</a></li>
-          <li><a href="services.html">Beauty Drips</a></li>
-          <li><a href="services.html">Performance & NAD+</a></li>
-          <li><a href="services.html">Recovery & Immunity</a></li>
-          <li><a href="services.html">Add-ons & Boosters</a></li>
+          <li><a href="#iv-therapy">IV Therapy</a></li>
+          <li><a href="#vitamin-injections">Vitamin Injections</a></li>
+          <li><a href="#weight-loss">Weight Loss</a></li>
         </ul>
       </div>
       <div>
         <h4>Concierge</h4>
         <ul>
           <li><a href="#">House Calls</a></li>
-          <li><a href="#">Membership</a></li>
           <li><a href="#">Bloodwork & Labs</a></li>
           <li><a href="#">Corporate & Events</a></li>
           <li><a href="#">Travel Program</a></li>
