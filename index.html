@@ -91,6 +91,9 @@
   .hero h1{font-family:var(--serif);font-weight:400;font-size:92px;line-height:1;letter-spacing:-.02em;color:var(--ink);margin-bottom:28px}
   .hero h1 em{font-style:italic;font-weight:500;font-size:.56em;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;padding-right:.05em;margin-top:.14em}
   .hero .eyebrow{color:var(--muted);margin-bottom:0}
+  .hero-eyebrow{display:flex;flex-wrap:wrap;align-items:center;row-gap:6px;column-gap:10px}
+  .eyebrow-part{white-space:nowrap}
+  .eyebrow-sep{opacity:.6}
   .hero .lede{font-size:18px;line-height:1.58;color:var(--ink-2);max-width:480px;font-weight:300}
   .hero .cta-row{margin-top:40px;display:flex;gap:14px;align-items:center}
   .hero-tagline{margin-top:28px;font-family:var(--serif);font-style:italic;font-weight:500;font-size:48px;line-height:1.05;letter-spacing:-.015em;background:var(--glow-grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px rgba(255,45,146,.4),0 0 60px rgba(255,106,26,.25)}
@@ -432,7 +435,7 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-left">
-        <div class="eyebrow" style="margin-bottom:28px;display:flex;align-items:center;gap:10px"><span class="sparkle" style="width:11px;height:11px"></span> Wellness Concierge &nbsp;·&nbsp; Nashville &amp; Surrounding Areas</div>
+        <div class="eyebrow hero-eyebrow" style="margin-bottom:28px"><span class="sparkle" style="width:11px;height:11px"></span><span class="eyebrow-part">Wellness Concierge</span><span class="eyebrow-sep">·</span><span class="eyebrow-part">Nashville &amp; Surrounding Areas</span></div>
         <h1>IV Therapy and Wellness<br><em>Directly to your door</em></h1>
         <p class="lede">IV therapy, GLP-1 weight loss, Vitamin Injections and Wellness Care, delivered to your home, hotel, or event. A licensed provider approves every treatment, and a registered nurse comes to you.</p>
         <div class="cta-row">
@@ -444,7 +447,7 @@
         <div class="hero-image">
           <img class="hero-photo" src="assets/hero-iv.jpg" alt="HydraGlow wellness concierge">
           <div class="tag">Wellness Concierge</div>
-          <div class="badge"><em>At home.</em> Nashville &amp; Surrounding Areas</div>
+          <div class="badge">Nashville &amp; Surrounding Areas</div>
         </div>
       </div>
     </div>
