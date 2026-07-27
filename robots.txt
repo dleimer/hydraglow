@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hydraglowsite.netlify.app/sitemap.xml
